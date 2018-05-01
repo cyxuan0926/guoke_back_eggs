@@ -27,6 +27,41 @@ class UsersController extends Controller {
     ctx.success(user, '查询用户成功');
   }
 
+  /**
+ * @api {post} /login 用户登录
+ * @apiName login
+ * @apiGroup Users
+ *
+ * @apiParam {String} userName 用户名.
+ * @apiParam {String} password 用户密码.
+ *
+ * @apiSuccess {ObjectId} _id 用户id.
+ * @apiSuccess {String} userName 用户名.
+ * @apiSuccess {Date} createdAt 用户创建时间.
+ * @apiSuccess {Date} updatedAt 用户修改时间.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '用户登录成功',
+ *       data: {
+ *        _id: '5tret4656557frt466',
+ *        userName: 'admin',
+ *        createdAt: '2018-5-2 0:0:0',
+ *        updatedAt: '2018-5-2 0:0:0'
+ *       }
+ *     }
+ *
+ * @apiError 500 用户名或者密码不正确.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       code: 500,
+ *       msg: '用户名或者密码不正确'
+ *     }
+ */
   async login() {
     const { ctx, service } = this;
     const user = ctx.request.body;
