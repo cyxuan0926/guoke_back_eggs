@@ -19,6 +19,7 @@
     "egg-mock": "^3.14.0",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
+    "koa-multer": "^1.0.2",
     "md5": "^2.2.1",
     "webstorm-disable-index": "^1.2.0"
   },
@@ -45,5 +46,9 @@
     "url": ""
   },
   "author": "leelic07",
-  "license": "MIT"
+  "license": "MIT",
+  "apidoc": {
+    "title": "国科官网api",
+    "url" : "http://10.10.10.31:7001"
+  }
 }

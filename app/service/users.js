@@ -8,12 +8,6 @@ class UsersService extends Service {
     return users;
   }
 
-  async create(user) {
-    const { ctx } = this;
-    const result = await ctx.model.Users.create(user, { password: 0 });
-    return result;
-  }
-
   async show(id) {
     const { ctx } = this;
     const user = await ctx.model.Users.findOne(id);
@@ -23,6 +17,22 @@ class UsersService extends Service {
   async login(user) {
     const { ctx } = this;
     const result = await ctx.model.Users.findOne(user, { password: 0 });
+    return result;
+  }
+
+  async resetPwd(password) {
+    const { ctx } = this;
+    const _id = ctx.session.userId;
+    password.newPassword = ctx.helper.md5(password.newPassword);
+    password.oldPassword = ctx.helper.md5(password.oldPassword);
+    const result = await ctx.model.Users.findOneAndUpdate({ _id, password: password.oldPassword }, { password: password.newPassword, updatedAt: Date.now }, { password: 0 });
+    return result;
+  }
+
+  async register(user) {
+    const { ctx } = this;
+    user.password = ctx.helper.md5(user.password);
+    const result = await ctx.model.Users.create(user, { password: 0 });
     return result;
   }
 }

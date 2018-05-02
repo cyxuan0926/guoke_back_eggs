@@ -1,4 +1,6 @@
 define({
+  "title": "国科官网api",
+  "url": "http://10.10.10.31:7001",
   "name": "guoke_back",
   "version": "1.0.0",
   "description": "",
@@ -7,7 +9,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2018-05-01T17:55:26.397Z",
+    "time": "2018-05-02T09:37:59.586Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }

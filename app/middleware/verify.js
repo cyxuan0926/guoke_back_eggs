@@ -4,7 +4,9 @@ module.exports = () => {
   return async (ctx, next) => {
     const userId = ctx.session.userId;
     const path = ctx.path;
-    if (path !== '/login') {
+    if (path === '/login' || path === '/register') {
+      await next();
+    } else {
       if (userId) {
         const result = await ctx.model.Users.findOne({ _id: userId });
         if (result) {
@@ -21,6 +23,6 @@ module.exports = () => {
           msg: '用户未登录',
         };
       }
-    } else await next();
+    }
   };
 };
