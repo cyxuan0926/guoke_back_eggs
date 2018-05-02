@@ -14,5 +14,5 @@ module.exports = app => {
   }, {
     versionKey: false,
   });
-  return mongoose.model('Navigation', BannerSchema);
+  return mongoose.model('Banner', BannerSchema);
 };

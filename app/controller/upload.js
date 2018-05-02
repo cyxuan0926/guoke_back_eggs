@@ -22,7 +22,7 @@ class UploadController extends Controller {
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
- *       msg: '用户登录成功',
+ *       msg: '上传文件成功',
  *       data: {"fieldname": "file",
  *           "originalname": "default.jpg",
  *           "encoding": "7bit",

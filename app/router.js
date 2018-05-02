@@ -22,6 +22,10 @@ module.exports = app => {
   router.resources('navigation', '/navigation', controller.navigation);
   // 获取所有导航数据
   router.get('/navigation/list', controller.navigation.list);
-  // Banner管理
+  // 标题栏管理
   router.resources('banner', '/banner', controller.banner);
+  // 查询所有标题栏
+  router.get('/banner/list', controller.banner.list);
+  // 基本信息管理
+  router.resources('information', '/information', controller.information);
 };

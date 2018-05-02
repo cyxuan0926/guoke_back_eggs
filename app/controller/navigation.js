@@ -1,8 +1,8 @@
 'use strict';
 const Controller = require('egg').Controller;
 const indexRule = {
-  page: { type: 'number' },
-  rows: { type: 'nubmer' },
+  page: { type: 'number', required: false },
+  rows: { type: 'nubmer', required: false },
 };
 const createRule = {
   title: { type: 'string', required: true },
@@ -29,7 +29,7 @@ class NavigationController extends Controller {
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
- *       msg: '用户登录成功',
+ *       msg: '查询导航栏成功',
  *       data: {
  *          navigation: [{
  *             _id: '5tret4656557frt466',
@@ -191,7 +191,7 @@ class NavigationController extends Controller {
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
- *       msg: '用户登录成功',
+ *       msg: '查询导航栏成功',
  *       data: [{
  *        _id: '5tret4656557frt466',
  *        title: '首页',

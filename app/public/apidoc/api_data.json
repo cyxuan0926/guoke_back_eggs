@@ -1,6 +1,523 @@
 [
   {
     "type": "get",
+    "url": "/banner",
+    "title": "分页查询标题栏",
+    "name": "banner",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "page",
+            "description": "<p>起始页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>每页条数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>标题创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>标题修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: {\n     banner: [{\n        _id: '5tret4656557frt466',\n        title: '国科',\n        url: '/index',\n        imageUrl: 'public/upload/2018-5-2/default.jpg'\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询标题栏失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询标题栏失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "delete",
+    "url": "/banner/:id",
+    "title": "删除标题栏",
+    "name": "banner_delete",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "id",
+            "description": "<p>标题id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除标题栏成功',\n  data: {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>删除标题栏失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '删除标题栏失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "get",
+    "url": "/banner/list",
+    "title": "查询所有标题栏",
+    "name": "banner_list",
+    "group": "Banner",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>标题创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>标题修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '国科',\n   description: '国科详情',\n   url: '/index',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询标题栏失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询标题栏失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "post",
+    "url": "/banner",
+    "title": "新增标题栏",
+    "name": "banner_new",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>标题图片路径</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>标题创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>标题修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: '/public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>新增标题失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增标题失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "put",
+    "url": "/banner/:id",
+    "title": "修改标题栏",
+    "name": "banner_update",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "id",
+            "description": "<p>标题id required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题路径</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>导航创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>导航修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>修改标题失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '修改标题失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "get",
     "url": "/navigation",
     "title": "分页查询导航栏",
     "name": "navigation",
@@ -75,7 +592,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '用户登录成功',\n  data: {\n     navigation: [{\n        _id: '5tret4656557frt466',\n        title: '首页',\n        url: '/index',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询导航栏成功',\n  data: {\n     navigation: [{\n        _id: '5tret4656557frt466',\n        title: '首页',\n        url: '/index',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -203,7 +720,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '用户登录成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '首页',\n   url: '/index',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询导航栏成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '首页',\n   url: '/index',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
           "type": "json"
         }
       ]
@@ -515,7 +1032,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '用户登录成功',\n  data: {\"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\file-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '上传文件成功',\n  data: {\"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\file-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
           "type": "json"
         }
       ]
