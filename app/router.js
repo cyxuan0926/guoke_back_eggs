@@ -28,4 +28,12 @@ module.exports = app => {
   router.get('/banner/list', controller.banner.list);
   // 基本信息管理
   router.resources('information', '/information', controller.information);
+  // 查询所有基本信息
+  router.get('/information/list', controller.information.list);
+  // 解决方案管理
+  router.resources('solution', '/solution', controller.solution);
+  // 查询所有解决方案
+  router.get('/solution/list', controller.solution.list);
+  // 公司简介管理
+  router.resources('introduction', '/introduction', controller.introduction);
 };

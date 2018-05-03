@@ -294,7 +294,7 @@
             "type": "String",
             "optional": false,
             "field": "imageUrl",
-            "description": "<p>标题图片路径</p>"
+            "description": "<p>标题图片路径 required</p>"
           }
         ]
       }
@@ -356,7 +356,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: '/public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: '/public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -426,7 +426,7 @@
             "type": "String",
             "optional": false,
             "field": "imageUrl",
-            "description": "<p>图片路径</p>"
+            "description": "<p>图片路径 required</p>"
           }
         ]
       }
@@ -474,14 +474,14 @@
             "type": "Date",
             "optional": false,
             "field": "createdAt",
-            "description": "<p>导航创建时间</p>"
+            "description": "<p>标题创建时间</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "optional": false,
             "field": "updatedAt",
-            "description": "<p>导航修改时间</p>"
+            "description": "<p>标题修改时间</p>"
           }
         ]
       },
@@ -515,6 +515,1400 @@
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
     "groupTitle": "Banner"
+  },
+  {
+    "type": "get",
+    "url": "/information",
+    "title": "分页查询基本信息",
+    "name": "information",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "page",
+            "description": "<p>起始页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>每页条数</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>基本信息id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询基本信息成功',\n  data: {\n     information: [{\n        _id: '5tret4656557frt466',\n        company: '国科股份有限公司',\n        shareCode: '834465',\n        address: '北京市海淀区西三旗昌临813号A11号楼',\n        tel: '010-82911260',\n        fax: '010-62160556',\n        email: 'Service@sinog2c.com',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "delete",
+    "url": "/information/:id",
+    "title": "删除基本信息",
+    "name": "information_delete",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>基本信息id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除基本信息成功',\n  data: {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>删除基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '删除基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "get",
+    "url": "/information/list",
+    "title": "查询所有基本信息",
+    "name": "information_list",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>基本信息id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询基本信息成功',\n  data: [{\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "post",
+    "url": "/information",
+    "title": "新增基本信息",
+    "name": "information_new",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>新增基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "get",
+    "url": "/information/:id",
+    "title": "根据id查询基本信息",
+    "name": "information_show",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>基本信息id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "put",
+    "url": "/information/:id",
+    "title": "修改基本信息",
+    "name": "information_update",
+    "group": "Information",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>基本信息id required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>修改基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '修改基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information"
+  },
+  {
+    "type": "get",
+    "url": "/introduction",
+    "title": "分页查询简介",
+    "name": "introduction",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "page",
+            "description": "<p>起始页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>每页条数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>简介id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n     introduction: [{\n        _id: '5tret4656557frt466',\n        title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n        content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n        images: [{\n          \"fieldname\": \"file\",\n          \"originalname\": \"default.jpg\",\n          \"encoding\": \"7bit\",\n          \"mimetype\": \"image/jpeg\",\n          \"destination\": \"public/upload/2018-4-3\",\n          \"filename\": \"file-1525241755117.jpg\",\n          \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n          \"size\": 20267\n         }]\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
+  },
+  {
+    "type": "delete",
+    "url": "/introduction/:id",
+    "title": "删除简介",
+    "name": "introduction_delete",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>简介id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除简介成功',\n  data: {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>删除简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '删除简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
+  },
+  {
+    "type": "get",
+    "url": "/introduction/list",
+    "title": "查询所有简介",
+    "name": "introduction_list",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>简介id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: [{\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
+  },
+  {
+    "type": "post",
+    "url": "/introduction",
+    "title": "新增简介",
+    "name": "introduction_new",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>简介id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增简介成功',\n  data: {\n    _id: '5tret4656557frt466',\n    title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n    content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n    images: [{\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n     }]\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>新增简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
+  },
+  {
+    "type": "get",
+    "url": "/introduction/:id",
+    "title": "根据id查询简介",
+    "name": "introduction_show",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>简介id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
+  },
+  {
+    "type": "put",
+    "url": "/introduction/:id",
+    "title": "修改简介",
+    "name": "introduction_update",
+    "group": "Introduction",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>简介id required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改简介成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>修改简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '修改简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction"
   },
   {
     "type": "get",
@@ -950,6 +2344,523 @@
     "groupTitle": "Navigation"
   },
   {
+    "type": "get",
+    "url": "/solution",
+    "title": "分页查询解决方案",
+    "name": "solution",
+    "group": "Solution",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "page",
+            "description": "<p>起始页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>每页条数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: {\n     solution: [{\n        _id: '5tret4656557frt466',\n        title: '企业移动平台APP开发',\n        description: '专注APP开发三十年',\n        url: '/solution',\n        imageUrl: 'public/upload/2018-5-2/default.jpg',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution"
+  },
+  {
+    "type": "delete",
+    "url": "/solution/:id",
+    "title": "删除解决方案",
+    "name": "solution_delete",
+    "group": "Solution",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "id",
+            "description": "<p>解决方案id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除解决方案成功',\n  data: {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>删除解决方案失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '删除解决方案失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution"
+  },
+  {
+    "type": "get",
+    "url": "/solution/list",
+    "title": "查询所有解决方案",
+    "name": "solution_list",
+    "group": "Solution",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: [\n   [{\n     _id: '5tret4656557frt466',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt467',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt468',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }]\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution"
+  },
+  {
+    "type": "post",
+    "url": "/solution",
+    "title": "新增解决方案",
+    "name": "solution_new",
+    "group": "Solution",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径 required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>新增标题失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增标题失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution"
+  },
+  {
+    "type": "put",
+    "url": "/solution/:id",
+    "title": "修改解决方案",
+    "name": "solution_update",
+    "group": "Solution",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "id",
+            "description": "<p>解决方案id required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径 required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改解决方案成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>修改解决方案失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '修改解决方案失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution"
+  },
+  {
     "type": "post",
     "url": "/upload",
     "title": "上传文件",
@@ -1032,7 +2943,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '上传文件成功',\n  data: {\"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\file-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '上传文件成功',\n  data: {\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
           "type": "json"
         }
       ]

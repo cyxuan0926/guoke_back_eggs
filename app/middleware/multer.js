@@ -7,7 +7,7 @@ module.exports = () => {
     destination: `app/public/upload/${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`,
     filename: (req, file, cb) => {
       const fileFormat = (file.originalname).split('.');
-      cb(null, file.fieldname + '-' + date.getTime() + '.' + fileFormat[fileFormat.length - 1]);
+      cb(null, fileFormat[0] + '-' + date.getTime() + '.' + fileFormat[fileFormat.length - 1]);
     },
   });
   const upload = multer({

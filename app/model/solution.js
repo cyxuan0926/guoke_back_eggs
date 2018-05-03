@@ -3,10 +3,10 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
-  const BannerSchema = new Schema({
-    title: { type: String, default: '' }, // 标题
-    description: { type: String, default: '' }, // 标题描述
-    url: { type: String, default: '' }, // 标题栏url
+  const SolutionSchema = new Schema({
+    title: { type: String, default: '' }, // 解决方案标题
+    description: { type: String, default: '' }, // 解决方案描述
+    url: { type: String, default: '' }, // 解决方案url
     imgUrl: { type: String, required: true }, // 图片路径
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
@@ -14,5 +14,5 @@ module.exports = app => {
   }, {
     versionKey: false,
   });
-  return mongoose.model('Banner', BannerSchema);
+  return mongoose.model('Solution', SolutionSchema);
 };

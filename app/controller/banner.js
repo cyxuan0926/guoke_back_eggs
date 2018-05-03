@@ -3,6 +3,7 @@ const Controller = require('egg').Controller;
 const indexRule = {
   page: { type: 'number', required: false },
   rows: { type: 'nubmer', required: false },
+  title: { type: 'string', required: false },
 };
 const createRule = {
   title: 'string',
@@ -71,7 +72,7 @@ class BannerController extends Controller {
  * @apiParam {String} title 标题
  * @apiParam {String} description 标题描述
  * @apiParam {String} url 标题地址
- * @apiParam {String} imageUrl 标题图片路径
+ * @apiParam {String} imageUrl 标题图片路径 required
  *
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} title 标题
@@ -86,7 +87,7 @@ class BannerController extends Controller {
  *     {
  *       code: 200,
  *       msg: '新增标题成功',
- *       data: [{
+ *       data: {
  *        _id: '5tret4656557frt466',
  *        title: '国科',
  *        url: '/index',
@@ -94,7 +95,7 @@ class BannerController extends Controller {
  *        imageUrl: '/public/upload/2018-5-2/default.jpg',
  *        createdAt: '2018-5-2 0:0:0',
  *        updatedAt: '2018-5-2 0:0:0'
- *       }]
+ *       }
  *     }
  *
  * @apiError 500 新增标题失败
@@ -122,15 +123,15 @@ class BannerController extends Controller {
  * @apiParam {String} title 标题
  * @apiParam {String} url 标题地址
  * @apiParam {String} description 标题路径
- * @apiParam {String} imageUrl 图片路径
+ * @apiParam {String} imageUrl 图片路径 required
  *
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} title 标题
  * @apiSuccess {String} url 标题地址
  * @apiSuccess {String} description 标题描述
  * @apiSuccess {String} imageUrl 图片路径
- * @apiSuccess {Date} createdAt 导航创建时间
- * @apiSuccess {Date} updatedAt 导航修改时间
+ * @apiSuccess {Date} createdAt 标题创建时间
+ * @apiSuccess {Date} updatedAt 标题修改时间
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
@@ -159,6 +160,7 @@ class BannerController extends Controller {
  */
   async update() {
     const { ctx, service } = this;
+    ctx.validate(createRule);
     const result = await service.banner.update(ctx.query, ctx.request.body);
     if (result) ctx.success(result, '修改标题栏成功'); else ctx.fail('修改标题栏失败');
   }

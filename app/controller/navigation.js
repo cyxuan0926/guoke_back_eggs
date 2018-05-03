@@ -3,6 +3,7 @@ const Controller = require('egg').Controller;
 const indexRule = {
   page: { type: 'number', required: false },
   rows: { type: 'nubmer', required: false },
+  title: { type: 'string', required: false },
 };
 const createRule = {
   title: { type: 'string', required: true },
@@ -142,6 +143,7 @@ class NavigationController extends Controller {
  */
   async update() {
     const { ctx, service } = this;
+    ctx.validate(createRule);
     const result = await service.navigation.update(ctx.query, ctx.reques.body);
     if (result) ctx.success(result, '修改导航成功'); else ctx.fail('修改导航失败');
   }

@@ -23,13 +23,14 @@ class UploadController extends Controller {
  *     {
  *       code: 200,
  *       msg: '上传文件成功',
- *       data: {"fieldname": "file",
+ *       data: {
+ *           "fieldname": "file",
  *           "originalname": "default.jpg",
  *           "encoding": "7bit",
  *           "mimetype": "image/jpeg",
  *           "destination": "public/upload/2018-4-3",
  *           "filename": "file-1525241755117.jpg",
- *           "path": "public\\upload\\2018-4-3\\file-1525241755117.jpg",
+ *           "path": "public\\upload\\2018-4-3\\default-1525241755117.jpg",
  *           "size": 20267
  *       }
  *     }

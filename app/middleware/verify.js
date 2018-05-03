@@ -4,7 +4,8 @@ module.exports = () => {
   return async (ctx, next) => {
     const userId = ctx.session.userId;
     const path = ctx.path;
-    if (path === '/login' || path === '/register') {
+    const publicPath = new RegExp('^/public');
+    if (path === '/login' || path === '/register' || publicPath.test(path)) {
       await next();
     } else {
       if (userId) {
