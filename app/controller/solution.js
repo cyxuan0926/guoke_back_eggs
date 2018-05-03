@@ -1,15 +1,15 @@
 'use strict';
 const Controller = require('egg').Controller;
 const indexRule = {
-  page: { type: 'number', required: false },
-  rows: { type: 'nubmer', required: false },
+  page: { type: 'int', required: false },
+  rows: { type: 'int', required: false },
   title: { type: 'string', required: false },
 };
 const createRule = {
   title: 'string',
   description: 'string',
   url: 'string',
-  imageUrl: { type: 'string', required: true },
+  imgUrl: { type: 'string', required: true },
 };
 
 class SolutionController extends Controller {
@@ -60,8 +60,11 @@ class SolutionController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
-    ctx.validator.validate(indexRule, ctx.query);
-    const result = await service.solution.index(ctx.query);
+    const query = ctx.query;
+    query.page ? query.page = parseInt(query.page) : '';
+    query.rows ? query.rows = parseInt(query.rows) : '';
+    ctx.validate(indexRule, query);
+    const result = await service.solution.index(query);
     if (result) ctx.success(result, '查询解决方案成功'); else ctx.fail('查询解决方案失败');
   }
 
@@ -140,13 +143,9 @@ class SolutionController extends Controller {
  *       code: 200,
  *       msg: '修改解决方案成功',
  *       data: {
- *        _id: '5tret4656557frt466',
- *        title: '企业移动平台APP开发',
- *        description: '专注APP开发三十年',
- *        url: '/solution',
- *        imageUrl: 'public/upload/2018-5-2/default.jpg',
- *        createdAt: '2018-5-2 0:0:0',
- *        updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -162,7 +161,7 @@ class SolutionController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.solution.update(ctx.query, ctx.request.body);
+    const result = await service.solution.update(ctx.params.id, ctx.request.body);
     if (result) ctx.success(result, '修改解决方案成功'); else ctx.fail('修改解决方案失败');
   }
 
@@ -192,7 +191,7 @@ class SolutionController extends Controller {
  */
   async destroy() {
     const { ctx, service } = this;
-    const result = await service.solution.destroy(ctx.query);
+    const result = await service.solution.destroy(ctx.params.id);
     if (result) ctx.success(result, '删除解决方案成功'); else ctx.fail('删除解决方案失败');
   }
 
@@ -255,17 +254,17 @@ class SolutionController extends Controller {
   async list() {
     const { ctx, service } = this;
     const solutionList = [];
-    const solutionItem = [];
+    let solutionItem = [];
     const solution = await service.solution.list();
     if (solution) {
       solution.forEach((sol, index, arr) => {
         solutionItem.push(sol);
-        if (index % 3 === 0 || index === arr.length - 1) {
+        if ((index + 1) % 3 === 0 || index === arr.length - 1) {
           solutionList.push(solutionItem);
-          solutionItem.splice(0);
+          solutionItem = [];
         }
       });
-      ctx.success(solutionList, '查询解决方案成功');
+      solutionList.length && ctx.success(solutionList, '查询解决方案成功');
     } else ctx.fail('查询解决方案失败');
   }
 }

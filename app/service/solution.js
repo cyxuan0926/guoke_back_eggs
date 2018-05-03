@@ -19,25 +19,25 @@ class SolutionService extends Service {
 
   async create(solution) {
     const { ctx } = this;
-    const result = ctx.model.Solution.create(solution);
+    const result = await ctx.model.Solution.create(solution);
     return result;
   }
 
-  async update(id, solution) {
+  async update(_id, solution) {
     const { ctx } = this;
-    const result = ctx.model.Solution.update(id, Object.assign(solution, { updatedAt: Date.now }));
+    const result = await ctx.model.Solution.update({ _id }, Object.assign(solution, { updatedAt: Date.now() }));
     return result;
   }
 
-  async destroy(id) {
+  async destroy(_id) {
     const { ctx } = this;
-    const result = ctx.model.Solution.update(id, { sysFlag: 0, updatedAt: Date.now });
+    const result = await ctx.model.Solution.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     return result;
   }
 
   async list() {
     const { ctx } = this;
-    const solution = ctx.model.Solution.find({ sysFlag: 1 });
+    const solution = await ctx.model.Solution.find({ sysFlag: 1 });
     return solution;
   }
 }

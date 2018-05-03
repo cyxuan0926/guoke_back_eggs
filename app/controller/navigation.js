@@ -1,8 +1,8 @@
 'use strict';
 const Controller = require('egg').Controller;
 const indexRule = {
-  page: { type: 'number', required: false },
-  rows: { type: 'nubmer', required: false },
+  page: { type: 'int', required: false },
+  rows: { type: 'int', required: false },
   title: { type: 'string', required: false },
 };
 const createRule = {
@@ -54,8 +54,11 @@ class NavigationController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
-    ctx.validator.validate(indexRule, ctx.query);
-    const result = await service.navigation.index(ctx.query);
+    const query = ctx.query;
+    query.page ? query.page = parseInt(query.page) : '';
+    query.rows ? query.rows = parseInt(query.rows) : '';
+    ctx.validate(indexRule, query);
+    const result = await service.navigation.index(query);
     if (result) ctx.success(result, '查询导航栏成功'); else ctx.fail('查询导航栏失败');
   }
 
@@ -79,11 +82,9 @@ class NavigationController extends Controller {
  *       code: 200,
  *       msg: '新增导航成功',
  *       data: {
- *        _id: '5tret4656557frt466',
- *        title: '首页',
- *        url: '/index',
- *        createdAt: '2018-5-2 0:0:0',
- *        updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -144,7 +145,7 @@ class NavigationController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.navigation.update(ctx.query, ctx.reques.body);
+    const result = await service.navigation.update(ctx.params.id, ctx.reques.body);
     if (result) ctx.success(result, '修改导航成功'); else ctx.fail('修改导航失败');
   }
 
@@ -174,7 +175,7 @@ class NavigationController extends Controller {
  */
   async destroy() {
     const { ctx, service } = this;
-    const result = await service.navigation.destroy(ctx.query);
+    const result = await service.navigation.destroy(ctx.params.id);
     if (result) ctx.success({}, '删除导航成功'); else ctx.fail('删除导航失败');
   }
 

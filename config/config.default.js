@@ -32,7 +32,11 @@ module.exports = appInfo => {
       // 判断是否需要 ignore 的方法，请求上下文 context 作为第一个参数
       ignore: ctx => ctx.ip === '127.0.0.1' || 'localhost',
     },
-    domainWhiteList: [ 'http://localhost:8080', 'http://localhost:3000' ],
+    domainWhiteList: [ 'http://localhost:8080', 'http://localhost:3000', 'http://localhost:9528' ],
+  };
+
+  config.cors = {
+    credentials: true,
   };
 
   return config;

@@ -8,8 +8,8 @@ class InformationService extends Service {
     const rows = pagination.rows || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
-    const information = ctx.model.Information.find(condition).skip(skip).limit(rows);
-    const total = ctx.model.Information.count(condition);
+    const information = await ctx.model.Information.find(condition).skip(skip).limit(rows);
+    const total = await ctx.model.Information.count(condition);
     return {
       information,
       total,
@@ -22,21 +22,22 @@ class InformationService extends Service {
     return result;
   }
 
-  async update(id, information) {
+  async update(_id, information) {
     const { ctx } = this;
-    const result = await ctx.model.Information.update(id, Object.assign(information, { updatedAt: Date.now }));
+    const result = await ctx.model.Information.update({ _id }, Object.assign(information, { updatedAt: Date.now() }));
     return result;
   }
 
-  async destroy(id) {
+  async destroy(_id) {
     const { ctx } = this;
-    const result = await ctx.model.Information.update(id, { sysFlag: 0, updatedAt: Date.now });
+    const result = await ctx.model.Information.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     return result;
   }
 
-  async show(id) {
+  async show(_id) {
     const { ctx } = this;
-    const information = await ctx.model.Information.findOne(Object.assign(id, { sysFlag: 1 }));
+    console.log('id', _id);
+    const information = await ctx.model.Information.findOne(Object.assign({ _id }, { sysFlag: 1 }));
     return information;
   }
 

@@ -488,7 +488,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改标题成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -1213,7 +1213,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改基本信息成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -1430,49 +1430,28 @@
             "type": "ObjectId",
             "optional": false,
             "field": "_id",
-            "description": "<p>标题id</p>"
+            "description": "<p>简介id</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "company",
-            "description": "<p>公司名称</p>"
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "shareCode",
-            "description": "<p>股票代码</p>"
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
-            "field": "address",
-            "description": "<p>公司地址</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "tel",
-            "description": "<p>公司电话</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "fax",
-            "description": "<p>公司传真</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>公司邮箱</p>"
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
           },
           {
             "group": "Success 200",
@@ -1493,7 +1472,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: [{\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: [{\n    _id: '5tret4656557frt466',\n    title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n    content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n    images: [{\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n     }]\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
           "type": "json"
         }
       ]
@@ -1659,49 +1638,28 @@
             "type": "ObjectId",
             "optional": false,
             "field": "_id",
-            "description": "<p>标题id</p>"
+            "description": "<p>简介id</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "company",
-            "description": "<p>公司名称</p>"
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "shareCode",
-            "description": "<p>股票代码</p>"
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
-            "field": "address",
-            "description": "<p>公司地址</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "tel",
-            "description": "<p>公司电话</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "fax",
-            "description": "<p>公司传真</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>公司邮箱</p>"
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
           },
           {
             "group": "Success 200",
@@ -1722,7 +1680,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n    _id: '5tret4656557frt466',\n    title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n    content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n    images: [{\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n     }]\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -1770,43 +1728,22 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "company",
-            "description": "<p>公司名称</p>"
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "shareCode",
-            "description": "<p>股票代码</p>"
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Array",
             "optional": false,
-            "field": "address",
-            "description": "<p>公司地址</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "tel",
-            "description": "<p>公司电话</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "fax",
-            "description": "<p>公司传真</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>公司邮箱</p>"
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
           }
         ]
       }
@@ -1819,49 +1756,28 @@
             "type": "ObjectId",
             "optional": false,
             "field": "_id",
-            "description": "<p>标题id</p>"
+            "description": "<p>简介id</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "company",
-            "description": "<p>公司名称</p>"
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "shareCode",
-            "description": "<p>股票代码</p>"
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
-            "field": "address",
-            "description": "<p>公司地址</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "tel",
-            "description": "<p>公司电话</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "fax",
-            "description": "<p>公司传真</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>公司邮箱</p>"
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
           },
           {
             "group": "Success 200",
@@ -1882,7 +1798,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改简介成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改简介成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2211,7 +2127,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增导航成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '首页',\n   url: '/index',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增导航成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2832,7 +2748,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改解决方案成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改解决方案成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -3161,7 +3077,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '注册用户成功',\n  data: {\n   _id: '5tret4656557frt466',\n   userName: 'admin',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '注册用户成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]

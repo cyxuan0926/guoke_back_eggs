@@ -1,14 +1,14 @@
 'use strict';
 const Controller = require('egg').Controller;
 const indexRule = {
-  page: { type: 'number', required: false },
-  rows: { type: 'nubmer', required: false },
+  page: { type: 'int', required: false },
+  rows: { type: 'int', required: false },
   title: { type: 'string', required: false },
 };
 const createRule = {
-  title: 'string',
-  description: 'string',
-  url: 'string',
+  title: { type: 'string', required: false },
+  description: { type: 'string', required: false },
+  url: { type: 'string', required: false },
   imageUrl: { type: 'string', required: true },
 };
 
@@ -59,8 +59,11 @@ class BannerController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
-    ctx.validator.validate(indexRule, ctx.query);
-    const result = await service.banner.index(ctx.query);
+    const query = ctx.query;
+    query.page ? query.page = parseInt(query.page) : '';
+    query.rows ? query.rows = parseInt(query.rows) : '';
+    ctx.validate(indexRule, query);
+    const result = await service.banner.index(query);
     if (result) ctx.success(result, '查询标题栏成功'); else ctx.fail('查询标题栏失败');
   }
 
@@ -139,13 +142,9 @@ class BannerController extends Controller {
  *       code: 200,
  *       msg: '修改标题成功',
  *       data: {
- *        _id: '5tret4656557frt466',
- *        title: '国科',
- *        url: '/index',
- *        description: '国科详情',
- *        imageUrl: 'public/upload/2018-5-2/default.jpg',
- *        createdAt: '2018-5-2 0:0:0',
- *        updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -161,7 +160,7 @@ class BannerController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.banner.update(ctx.query, ctx.request.body);
+    const result = await service.banner.update(ctx.params.id, ctx.request.body);
     if (result) ctx.success(result, '修改标题栏成功'); else ctx.fail('修改标题栏失败');
   }
 
@@ -191,7 +190,7 @@ class BannerController extends Controller {
  */
   async destroy() {
     const { ctx, service } = this;
-    const result = await service.banner.destroy(ctx.query);
+    const result = await service.banner.destroy(ctx.params.id);
     if (result) ctx.success(result, '删除标题栏成功'); else ctx.fail('删除标题栏失败');
   }
 

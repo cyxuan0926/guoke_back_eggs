@@ -19,25 +19,25 @@ class NavigationService extends Service {
 
   async create(navigation) {
     const { ctx } = this;
-    const result = ctx.model.Navigation.create(navigation);
+    const result = await ctx.model.Navigation.create(navigation);
     return result;
   }
 
-  async update(id, navigation) {
+  async update(_id, navigation) {
     const { ctx } = this;
-    const result = ctx.model.Navigation.update(id, Object.assign(navigation, { updatedAt: Date.now }));
+    const result = await ctx.model.Navigation.update({ _id }, Object.assign(navigation, { updatedAt: Date.now() }));
     return result;
   }
 
-  async destroy(id) {
+  async destroy(_id) {
     const { ctx } = this;
-    const result = ctx.model.Navigation.update(id, { sysFlag: 0, updatedAt: Date.now });
+    const result = await ctx.model.Navigation.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     return result;
   }
 
   async list() {
     const { ctx } = this;
-    const navigation = ctx.model.Navigation.find({ sysFlag: 1 });
+    const navigation = await ctx.model.Navigation.find({ sysFlag: 1 });
     return navigation;
   }
 }

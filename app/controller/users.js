@@ -162,10 +162,9 @@ class UsersController extends Controller {
  *       code: 200,
  *       msg: '注册用户成功',
  *       data: {
- *        _id: '5tret4656557frt466',
- *        userName: 'admin',
- *        createdAt: '2018-5-2 0:0:0',
- *        updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -181,8 +180,14 @@ class UsersController extends Controller {
   async register() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.users.register(ctx.request.body);
-    if (result) ctx.success(result, '注册用户成功'); else ctx.fail('注册用户失败');
+    const user = await service.users.register(ctx.request.body);
+    if (user) {
+      ctx.success({
+        userName: user.userName,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      }, '注册用户成功');
+    } else ctx.fail('注册用户失败');
   }
 }
 

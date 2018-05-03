@@ -1,16 +1,16 @@
 'use strict';
 const Controller = require('egg').Controller;
 const indexRule = {
-  page: { type: 'number', required: false },
-  rows: { type: 'nubmer', required: false },
+  page: { type: 'int', required: false },
+  rows: { type: 'int', required: false },
 };
 const createRule = {
-  company: 'string',
-  shareCode: 'string',
-  address: 'string',
-  tel: 'string',
-  fax: 'string',
-  email: 'string',
+  company: { type: 'string', required: true },
+  shareCode: { type: 'string', required: false },
+  address: { type: 'string', required: true },
+  tel: { type: 'string', required: true },
+  fax: { type: 'string', required: false },
+  email: { type: 'string', required: false },
 };
 
 class InformationController extends Controller {
@@ -64,8 +64,11 @@ class InformationController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
-    ctx.validator.validate(indexRule, ctx.query);
-    const result = await service.information.index(ctx.query);
+    const query = ctx.query;
+    query.page ? query.page = parseInt(query.page) : '';
+    query.rows ? query.rows = parseInt(query.rows) : '';
+    ctx.validate(indexRule, query);
+    const result = await service.information.index(query);
     if (result) ctx.success(result, '查询基本信息成功'); else ctx.fail('查询基本信息失败');
   }
 
@@ -154,15 +157,9 @@ class InformationController extends Controller {
  *       code: 200,
  *       msg: '修改基本信息成功',
  *       data: {
- *          _id: '5tret4656557frt466',
- *          company: '国科股份有限公司',
- *          shareCode: '834465',
- *          address: '北京市海淀区西三旗昌临813号A11号楼',
- *          tel: '010-82911260',
- *          fax: '010-62160556',
- *          email: 'Service@sinog2c.com',
- *          createdAt: '2018-5-2 0:0:0',
- *          updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -178,7 +175,7 @@ class InformationController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.information.update(ctx.query, ctx.request.body);
+    const result = await service.information.update(ctx.params.id, ctx.request.body);
     if (result) ctx.success(result, '修改基本信息成功'); else ctx.fail('修改基本信息失败');
   }
 
@@ -208,7 +205,7 @@ class InformationController extends Controller {
  */
   async destroy() {
     const { ctx, service } = this;
-    const result = await service.information.destroy(ctx.query);
+    const result = await service.information.destroy(ctx.params.id);
     if (result) ctx.success(result, '删除基本信息成功'); else ctx.fail('删除基本信息失败');
   }
 
@@ -258,7 +255,7 @@ class InformationController extends Controller {
  */
   async show() {
     const { ctx, service } = this;
-    const information = await service.information.show(ctx.query);
+    const information = await service.information.show(ctx.params.id);
     if (information) ctx.success(information, '查询基本信息成功'); else ctx.fail('查询基本信息失败');
   }
 

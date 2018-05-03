@@ -9,8 +9,8 @@ class IntroductionService extends Service {
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
     pagination.title ? condition.title = pagination.title : '';
-    const introduction = ctx.model.Introduction.find(condition).skip(skip).limit(rows);
-    const total = ctx.model.Introduction.count(condition);
+    const introduction = await ctx.model.Introduction.find(condition).skip(skip).limit(rows);
+    const total = await ctx.model.Introduction.count(condition);
     return {
       introduction,
       total,
@@ -25,18 +25,19 @@ class IntroductionService extends Service {
 
   async update(id, introduction) {
     const { ctx } = this;
-    const result = await ctx.model.Introduction.update(id, Object.assign(introduction, { updatedAt: Date.now }));
+    const result = await ctx.model.Introduction.update(id, Object.assign(introduction, { updatedAt: Date.now() }));
     return result;
   }
 
   async destroy(id) {
     const { ctx } = this;
-    const result = await ctx.model.Introduction.update(id, { sysFlag: 0, updatedAt: Date.now });
+    const result = await ctx.model.Introduction.update(id, { sysFlag: 0, updatedAt: Date.now() });
     return result;
   }
 
   async show(id) {
     const { ctx } = this;
+    console.log('id', id);
     const introduction = await ctx.model.Introduction.findOne(Object.assign(id, { sysFlag: 1 }));
     return introduction;
   }
