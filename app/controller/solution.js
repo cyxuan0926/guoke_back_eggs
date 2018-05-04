@@ -82,7 +82,7 @@ class SolutionController extends Controller {
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
- *       msg: '新增标题成功',
+ *       msg: '新增解决方案成功',
  *       data: {
  *        _id: '5tret4656557frt466',
  *        title: '企业移动平台APP开发',
@@ -94,13 +94,13 @@ class SolutionController extends Controller {
  *       }
  *     }
  *
- * @apiError 500 新增标题失败
+ * @apiError 500 新增解决方案失败
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 500,
- *       msg: '新增标题失败'
+ *       msg: '新增解决方案失败'
  *     }
  */
   async create() {

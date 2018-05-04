@@ -2232,6 +2232,348 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/solution-detail",
+    "title": "分页查询解决方案详情",
+    "name": "solutionDetail",
+    "group": "SolutionDetail",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>起始页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Int",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>每页条数</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案详情id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "constitute",
+            "description": "<p>组成部分和应用领域</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "technology",
+            "description": "<p>技术特点</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "solutionId",
+            "description": "<p>对应的解决方案</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     solutionDetail: [{\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n     }],\n     total: 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案详情失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案详情失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solutionDetail.js",
+    "groupTitle": "SolutionDetail",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution-detail"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/solution-detail/:id/edit",
+    "title": "根据解决方案id查询解决方案详情",
+    "name": "solutionDetail_edit",
+    "group": "SolutionDetail",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案详情id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "constitute",
+            "description": "<p>组成部分和应用领域</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "technology",
+            "description": "<p>技术特点</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "solutionId",
+            "description": "<p>对应的解决方案</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案详情失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案详情失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solutionDetail.js",
+    "groupTitle": "SolutionDetail",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution-detail/:id/edit"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/solution-detail",
+    "title": "新增解决方案详情",
+    "name": "solution_detail_new",
+    "group": "SolutionDetail",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "constitute",
+            "description": "<p>组成部分和应用领域</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "technology",
+            "description": "<p>技术特点</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "solutionId",
+            "description": "<p>解决方案id required</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案详情id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "constitute",
+            "description": "<p>组成部分和应用领域</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "technology",
+            "description": "<p>技术特点</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "solutionId",
+            "description": "<p>对应的解决方案</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>新增解决方案详情失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增解决方案详情失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solutionDetail.js",
+    "groupTitle": "SolutionDetail",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution-detail"
+      }
+    ]
+  },
+  {
+    "type": "get",
     "url": "/solution",
     "title": "分页查询解决方案",
     "name": "solution",
@@ -2589,7 +2931,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imgUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增解决方案成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imgUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -2601,14 +2943,14 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "500",
-            "description": "<p>新增标题失败</p>"
+            "description": "<p>新增解决方案失败</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增标题失败'\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '新增解决方案失败'\n}",
           "type": "json"
         }
       ]
