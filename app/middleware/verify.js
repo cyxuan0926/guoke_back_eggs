@@ -5,7 +5,8 @@ module.exports = () => {
     const userId = ctx.session.userId;
     const path = ctx.path;
     const publicPath = new RegExp('^/public');
-    if (path === '/login' || path === '/register' || publicPath.test(path)) {
+    const listPath = path.substring(path.lastIndexOf('/'));
+    if (path === '/login' || path === '/register' || publicPath.test(path) || listPath === '/list') {
       await next();
     } else {
       if (userId) {

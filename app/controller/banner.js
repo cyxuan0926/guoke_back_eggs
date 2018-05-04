@@ -1,15 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
-const indexRule = {
-  page: { type: 'int', required: false },
-  rows: { type: 'int', required: false },
-  title: { type: 'string', required: false },
-};
 const createRule = {
   title: { type: 'string', required: false },
   description: { type: 'string', required: false },
   url: { type: 'string', required: false },
-  imageUrl: { type: 'string', required: true },
+  imgUrl: { type: 'string', required: true },
 };
 
 class BannerController extends Controller {
@@ -25,7 +20,7 @@ class BannerController extends Controller {
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} title 标题
  * @apiSuccess {String} description 标题描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {String} url 标题地址
  * @apiSuccess {Date} createdAt 标题创建时间
  * @apiSuccess {Date} updatedAt 标题修改时间
@@ -40,7 +35,7 @@ class BannerController extends Controller {
  *             _id: '5tret4656557frt466',
  *             title: '国科',
  *             url: '/index',
- *             imageUrl: 'public/upload/2018-5-2/default.jpg'
+ *             imgUrl: 'public/upload/2018-5-2/default.jpg'
  *             createdAt: '2018-5-2 0:0:0',
  *             updatedAt: '2018-5-2 0:0:0'
  *          }],
@@ -60,9 +55,6 @@ class BannerController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
-    query.page ? query.page = parseInt(query.page) : '';
-    query.rows ? query.rows = parseInt(query.rows) : '';
-    ctx.validate(indexRule, query);
     const result = await service.banner.index(query);
     if (result) ctx.success(result, '查询标题栏成功'); else ctx.fail('查询标题栏失败');
   }
@@ -75,13 +67,13 @@ class BannerController extends Controller {
  * @apiParam {String} title 标题
  * @apiParam {String} description 标题描述
  * @apiParam {String} url 标题地址
- * @apiParam {String} imageUrl 标题图片路径 required
+ * @apiParam {String} imgUrl 标题图片路径 required
  *
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} title 标题
  * @apiSuccess {String} description 标题描述
  * @apiSuccess {String} url 标题地址
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 标题创建时间
  * @apiSuccess {Date} updatedAt 标题修改时间
  *
@@ -95,7 +87,7 @@ class BannerController extends Controller {
  *        title: '国科',
  *        url: '/index',
  *        description: '国科详情',
- *        imageUrl: '/public/upload/2018-5-2/default.jpg',
+ *        imgUrl: '/public/upload/2018-5-2/default.jpg',
  *        createdAt: '2018-5-2 0:0:0',
  *        updatedAt: '2018-5-2 0:0:0'
  *       }
@@ -122,17 +114,15 @@ class BannerController extends Controller {
  * @apiName banner/update
  * @apiGroup Banner
  *
- * @apiParam {ObjectId} id 标题id required
  * @apiParam {String} title 标题
  * @apiParam {String} url 标题地址
  * @apiParam {String} description 标题路径
- * @apiParam {String} imageUrl 图片路径 required
+ * @apiParam {String} imgUrl 图片路径 required
  *
- * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} title 标题
  * @apiSuccess {String} url 标题地址
  * @apiSuccess {String} description 标题描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 标题创建时间
  * @apiSuccess {Date} updatedAt 标题修改时间
  *
@@ -169,14 +159,16 @@ class BannerController extends Controller {
  * @apiName banner/delete
  * @apiGroup Banner
  *
- * @apiParam {ObjectId} id 标题id required
- *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
  *       msg: '删除标题栏成功',
- *       data: {}
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
  *     }
  *
  * @apiError 500 删除标题栏失败
@@ -203,7 +195,7 @@ class BannerController extends Controller {
  * @apiSuccess {String} title 标题
  * @apiSuccess {String} url 标题地址
  * @apiSuccess {String} description 标题描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 标题创建时间
  * @apiSuccess {Date} updatedAt 标题修改时间
  *
@@ -217,7 +209,7 @@ class BannerController extends Controller {
  *        title: '国科',
  *        description: '国科详情',
  *        url: '/index',
- *        imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *        imgUrl: 'public/upload/2018-5-2/default.jpg',
  *        createdAt: '2018-5-2 0:0:0',
  *        updatedAt: '2018-5-2 0:0:0'
  *       }]

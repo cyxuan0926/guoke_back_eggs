@@ -24,11 +24,12 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /resetPwd 修改用户密码
+ * @apiSampleRequest http://10.10.10.31:7001/resetPwd
  * @apiName restPwd
  * @apiGroup Users
  *
- * @apiParam {String} oldPassword 用户名
- * @apiParam {String} newPassword 用户密码
+ * @apiParam {String} oldPassword 用户名 required
+ * @apiParam {String} newPassword 用户密码 required
  *
  * @apiSuccess {ObjectId} _id 用户id
  * @apiSuccess {String} userName 用户名
@@ -41,10 +42,9 @@ class UsersController extends Controller {
  *       code: 200,
  *       msg: '修改用户密码成功',
  *       data: {
- *          "_id": "5ae948447c8f0c24149ba892",
- *          "userName": "lcc",
- *          "updatedAt": "2018-05-02T05:10:28.471Z",
- *          "createdAt": "2018-05-02T05:10:28.471Z"
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *        }
  *      }
  *
@@ -66,11 +66,12 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /login 用户登录
+ * @apiSampleRequest http://10.10.10.31:7001/login
  * @apiName login
  * @apiGroup Users
  *
- * @apiParam {String} userName 用户名
- * @apiParam {String} password 用户密码
+ * @apiParam {String} userName 用户名 required
+ * @apiParam {String} password 用户密码 required
  *
  * @apiSuccess {ObjectId} _id 用户id
  * @apiSuccess {String} userName 用户名
@@ -115,6 +116,7 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /logout 退出登录
+ * @apiSampleRequest http://10.10.10.31:7001/logout
  * @apiName logout
  * @apiGroup Users
  *
@@ -145,11 +147,12 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /register 用户注册
+ * @apiSampleRequest http://10.10.10.31:7001/register
  * @apiName register
  * @apiGroup Users
  *
- * @apiParam {String} userName 用户名
- * @apiParam {String} password 用户密码
+ * @apiParam {String} userName 用户名 required
+ * @apiParam {String} password 用户密码 required
  *
  * @apiSuccess {ObjectId} _id 用户id
  * @apiSuccess {String} userName 用户名
@@ -161,10 +164,10 @@ class UsersController extends Controller {
  *     {
  *       code: 200,
  *       msg: '注册用户成功',
- *       data: {
- *         "ok": 1,
- *         "nModified": 1,
- *         "n": 1
+ *        _id: '5tret4656557frt466',
+ *        userName: 'admin',
+ *        createdAt: '2018-5-2 0:0:0',
+ *        updatedAt: '2018-5-2 0:0:0'
  *       }
  *     }
  *

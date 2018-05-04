@@ -1,10 +1,5 @@
 'use strict';
 const Controller = require('egg').Controller;
-const indexRule = {
-  page: { type: 'int', required: false },
-  rows: { type: 'int', required: false },
-  title: { type: 'string', required: false },
-};
 const createRule = {
   title: { type: 'string', required: true },
   content: { type: 'string', required: true },
@@ -67,9 +62,6 @@ class IntroductionController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
-    query.page ? query.page = parseInt(query.page) : '';
-    query.rows ? query.rows = parseInt(query.rows) : '';
-    ctx.validate(indexRule, query);
     const result = await service.introduction.index(query);
     if (result) ctx.success(result, '查询简介成功'); else ctx.fail('查询简介失败');
   }
@@ -79,9 +71,9 @@ class IntroductionController extends Controller {
  * @apiName introduction/new
  * @apiGroup Introduction
  *
- * @apiParam {String} title 公司简介标题
- * @apiParam {String} content 公司简介内容
- * @apiParam {Array} images 公司简介图片数组
+ * @apiParam {String} title 公司简介标题 required
+ * @apiParam {String} content 公司简介内容 required
+ * @apiParam {Array} images 公司简介图片数组 required
  *
  * @apiSuccess {ObjectId} _id 简介id
  * @apiSuccess {String} title 公司简介标题
@@ -135,10 +127,9 @@ class IntroductionController extends Controller {
  * @apiName introduction/update
  * @apiGroup Introduction
  *
- * @apiParam {String} id 简介id required
- * @apiParam {String} title 公司简介标题
- * @apiParam {String} content 公司简介内容
- * @apiParam {Array} images 公司简介图片数组
+ * @apiParam {String} title 公司简介标题 required
+ * @apiParam {String} content 公司简介内容 required
+ * @apiParam {Array} images 公司简介图片数组 required
  *
  * @apiSuccess {ObjectId} _id 简介id
  * @apiSuccess {String} title 公司简介标题
@@ -180,14 +171,16 @@ class IntroductionController extends Controller {
  * @apiName introduction/delete
  * @apiGroup Introduction
  *
- * @apiParam {String} id 简介id required
- *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
  *       msg: '删除简介成功',
- *       data: {}
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
  *     }
  *
  * @apiError 500 删除简介失败
@@ -206,11 +199,9 @@ class IntroductionController extends Controller {
   }
 
   /**
- * @api {get} /introduction/:id 根据id查询简介
- * @apiName introduction/show
+ * @api {get} /introduction/:id/edit 根据id查询简介
+ * @apiName introduction/edit
  * @apiGroup Introduction
- *
- * @apiParam {String} id 简介id required
  *
  * @apiSuccess {ObjectId} _id 简介id
  * @apiSuccess {String} title 公司简介标题
@@ -252,9 +243,9 @@ class IntroductionController extends Controller {
  *       msg: '查询简介失败'
  *     }
  */
-  async show() {
+  async edit() {
     const { ctx, service } = this;
-    const introduction = await service.introduction.show(ctx.query);
+    const introduction = await service.introduction.edit(ctx.query);
     if (introduction) ctx.success(introduction, '查询简介成功'); else ctx.fail('查询简介失败');
   }
 
@@ -262,8 +253,6 @@ class IntroductionController extends Controller {
  * @api {get} /introduction/list 查询所有简介
  * @apiName introduction/list
  * @apiGroup Introduction
- *
- * @apiParam {String} id 简介id required
  *
  * @apiSuccess {ObjectId} _id 简介id
  * @apiSuccess {String} title 公司简介标题

@@ -1,9 +1,5 @@
 'use strict';
 const Controller = require('egg').Controller;
-const indexRule = {
-  page: { type: 'int', required: false },
-  rows: { type: 'int', required: false },
-};
 const createRule = {
   company: { type: 'string', required: true },
   shareCode: { type: 'string', required: false },
@@ -65,9 +61,6 @@ class InformationController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
-    query.page ? query.page = parseInt(query.page) : '';
-    query.rows ? query.rows = parseInt(query.rows) : '';
-    ctx.validate(indexRule, query);
     const result = await service.information.index(query);
     if (result) ctx.success(result, '查询基本信息成功'); else ctx.fail('查询基本信息失败');
   }
@@ -77,10 +70,10 @@ class InformationController extends Controller {
  * @apiName information/new
  * @apiGroup Information
  *
- * @apiParam {String} company 公司名称
+ * @apiParam {String} company 公司名称 required
  * @apiParam {String} shareCode 股票代码
- * @apiParam {String} address 公司地址
- * @apiParam {String} tel 公司电话
+ * @apiParam {String} address 公司地址 requred
+ * @apiParam {String} tel 公司电话 required
  * @apiParam {String} fax 公司传真
  * @apiParam {String} email 公司邮箱
  *
@@ -133,11 +126,10 @@ class InformationController extends Controller {
  * @apiName information/update
  * @apiGroup Information
  *
- * @apiParam {String} id 基本信息id required
- * @apiParam {String} company 公司名称
+ * @apiParam {String} company 公司名称 required
  * @apiParam {String} shareCode 股票代码
- * @apiParam {String} address 公司地址
- * @apiParam {String} tel 公司电话
+ * @apiParam {String} address 公司地址 required
+ * @apiParam {String} tel 公司电话 required
  * @apiParam {String} fax 公司传真
  * @apiParam {String} email 公司邮箱
  *
@@ -184,14 +176,16 @@ class InformationController extends Controller {
  * @apiName information/delete
  * @apiGroup Information
  *
- * @apiParam {String} id 基本信息id required
- *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
  *       msg: '删除基本信息成功',
- *       data: {}
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
  *     }
  *
  * @apiError 500 删除基本信息失败
@@ -210,11 +204,9 @@ class InformationController extends Controller {
   }
 
   /**
- * @api {get} /information/:id 根据id查询基本信息
- * @apiName information/show
+ * @api {get} /information/:id/edit 根据id查询基本信息
+ * @apiName information/edit
  * @apiGroup Information
- *
- * @apiParam {String} id 基本信息id required
  *
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} company 公司名称
@@ -253,9 +245,9 @@ class InformationController extends Controller {
  *       msg: '查询基本信息失败'
  *     }
  */
-  async show() {
+  async edit() {
     const { ctx, service } = this;
-    const information = await service.information.show(ctx.params.id);
+    const information = await service.information.edit(ctx.params.id);
     if (information) ctx.success(information, '查询基本信息成功'); else ctx.fail('查询基本信息失败');
   }
 
@@ -263,8 +255,6 @@ class InformationController extends Controller {
  * @api {get} /information/list 查询所有基本信息
  * @apiName information/list
  * @apiGroup Information
- *
- * @apiParam {String} id 基本信息id required
  *
  * @apiSuccess {ObjectId} _id 标题id
  * @apiSuccess {String} company 公司名称

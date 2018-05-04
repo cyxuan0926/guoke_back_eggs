@@ -4,8 +4,8 @@ const Service = require('egg').Service;
 class NavigationService extends Service {
   async index(pagination) {
     const { ctx } = this;
-    const page = pagination.page || 1;
-    const rows = pagination.rows || 10;
+    const page = parseInt(pagination.page) || 1;
+    const rows = parseInt(pagination.rows) || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
     pagination.title ? condition.title = pagination.title : '';

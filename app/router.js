@@ -36,4 +36,8 @@ module.exports = app => {
   router.get('/solution/list', controller.solution.list);
   // 公司简介管理
   router.resources('introduction', '/introduction', controller.introduction);
+  // 查询所有公司简介
+  router.get('/introduction/list', controller.introduction.list);
+  // 解决方案详情管理
+  router.resources('solutionDetail', '/solution-detail', controller.solutionDetail);
 };

@@ -60,7 +60,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -89,7 +89,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: {\n     banner: [{\n        _id: '5tret4656557frt466',\n        title: '国科',\n        url: '/index',\n        imageUrl: 'public/upload/2018-5-2/default.jpg'\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: {\n     banner: [{\n        _id: '5tret4656557frt466',\n        title: '国科',\n        url: '/index',\n        imgUrl: 'public/upload/2018-5-2/default.jpg'\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -115,7 +115,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
-    "groupTitle": "Banner"
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner"
+      }
+    ]
   },
   {
     "type": "delete",
@@ -123,24 +128,11 @@ define({ "api": [
     "title": "删除标题栏",
     "name": "banner_delete",
     "group": "Banner",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>标题id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除标题栏成功',\n  data: {}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除标题栏成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -166,7 +158,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
-    "groupTitle": "Banner"
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -209,7 +206,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -231,7 +228,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '国科',\n   description: '国科详情',\n   url: '/index',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: [{\n   _id: '5tret4656557frt466',\n   title: '国科',\n   description: '国科详情',\n   url: '/index',\n   imgUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }]\n}",
           "type": "json"
         }
       ]
@@ -257,7 +254,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
-    "groupTitle": "Banner"
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner/list"
+      }
+    ]
   },
   {
     "type": "post",
@@ -293,7 +295,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>标题图片路径 required</p>"
           }
         ]
@@ -334,7 +336,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -356,7 +358,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imageUrl: '/public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   url: '/index',\n   description: '国科详情',\n   imgUrl: '/public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -382,7 +384,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
-    "groupTitle": "Banner"
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner"
+      }
+    ]
   },
   {
     "type": "put",
@@ -393,13 +400,6 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>标题id required</p>"
-          },
           {
             "group": "Parameter",
             "type": "String",
@@ -425,7 +425,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径 required</p>"
           }
         ]
@@ -434,13 +434,6 @@ define({ "api": [
     "success": {
       "fields": {
         "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>标题id</p>"
-          },
           {
             "group": "Success 200",
             "type": "String",
@@ -466,7 +459,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -514,7 +507,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/banner.js",
-    "groupTitle": "Banner"
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -639,7 +637,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/information.js",
-    "groupTitle": "Information"
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information"
+      }
+    ]
   },
   {
     "type": "delete",
@@ -647,24 +650,11 @@ define({ "api": [
     "title": "删除基本信息",
     "name": "information_delete",
     "group": "Information",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>基本信息id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除基本信息成功',\n  data: {}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除基本信息成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -690,7 +680,122 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/information.js",
-    "groupTitle": "Information"
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/information/:id/edit",
+    "title": "根据id查询基本信息",
+    "name": "information_edit",
+    "group": "Information",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>公司名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shareCode",
+            "description": "<p>股票代码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>公司地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>公司电话</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fax",
+            "description": "<p>公司传真</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>公司邮箱</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>信息创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>信息修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询基本信息失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询基本信息失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/information.js",
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information/:id/edit"
+      }
+    ]
   },
   {
     "type": "get",
@@ -698,19 +803,6 @@ define({ "api": [
     "title": "查询所有基本信息",
     "name": "information_list",
     "group": "Information",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>基本信息id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -808,7 +900,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/information.js",
-    "groupTitle": "Information"
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information/list"
+      }
+    ]
   },
   {
     "type": "post",
@@ -824,7 +921,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "company",
-            "description": "<p>公司名称</p>"
+            "description": "<p>公司名称 required</p>"
           },
           {
             "group": "Parameter",
@@ -838,14 +935,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "address",
-            "description": "<p>公司地址</p>"
+            "description": "<p>公司地址 requred</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "tel",
-            "description": "<p>公司电话</p>"
+            "description": "<p>公司电话 required</p>"
           },
           {
             "group": "Parameter",
@@ -961,125 +1058,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/information.js",
-    "groupTitle": "Information"
-  },
-  {
-    "type": "get",
-    "url": "/information/:id",
-    "title": "根据id查询基本信息",
-    "name": "information_show",
-    "group": "Information",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>基本信息id required</p>"
-          }
-        ]
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information"
       }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>标题id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "company",
-            "description": "<p>公司名称</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "shareCode",
-            "description": "<p>股票代码</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "address",
-            "description": "<p>公司地址</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "tel",
-            "description": "<p>公司电话</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "fax",
-            "description": "<p>公司传真</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>公司邮箱</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "createdAt",
-            "description": "<p>信息创建时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "updatedAt",
-            "description": "<p>信息修改时间</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询基本信息成功',\n  data: {\n     _id: '5tret4656557frt466',\n     company: '国科股份有限公司',\n     shareCode: '834465',\n     address: '北京市海淀区西三旗昌临813号A11号楼',\n     tel: '010-82911260',\n     fax: '010-62160556',\n     email: 'Service@sinog2c.com',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n  }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "500",
-            "description": "<p>查询基本信息失败</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询基本信息失败'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "app/controller/information.js",
-    "groupTitle": "Information"
+    ]
   },
   {
     "type": "put",
@@ -1094,15 +1078,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>基本信息id required</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "company",
-            "description": "<p>公司名称</p>"
+            "description": "<p>公司名称 required</p>"
           },
           {
             "group": "Parameter",
@@ -1116,14 +1093,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "address",
-            "description": "<p>公司地址</p>"
+            "description": "<p>公司地址 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "tel",
-            "description": "<p>公司电话</p>"
+            "description": "<p>公司电话 required</p>"
           },
           {
             "group": "Parameter",
@@ -1239,7 +1216,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/information.js",
-    "groupTitle": "Information"
+    "groupTitle": "Information",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/information/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -1350,7 +1332,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction"
+      }
+    ]
   },
   {
     "type": "delete",
@@ -1358,24 +1345,11 @@ define({ "api": [
     "title": "删除简介",
     "name": "introduction_delete",
     "group": "Introduction",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>简介id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除简介成功',\n  data: {}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除简介成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -1401,7 +1375,101 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/introduction/:id/edit",
+    "title": "根据id查询简介",
+    "name": "introduction_edit",
+    "group": "Introduction",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>简介id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>公司简介标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>公司简介内容</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "images",
+            "description": "<p>公司简介图片数组</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>简介创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>简介修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n    _id: '5tret4656557frt466',\n    title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n    content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n    images: [{\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n     }]\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询简介失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询简介失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/introduction.js",
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction/:id/edit"
+      }
+    ]
   },
   {
     "type": "get",
@@ -1409,19 +1477,6 @@ define({ "api": [
     "title": "查询所有简介",
     "name": "introduction_list",
     "group": "Introduction",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>简介id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -1498,7 +1553,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction/list"
+      }
+    ]
   },
   {
     "type": "post",
@@ -1514,21 +1574,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>公司简介标题</p>"
+            "description": "<p>公司简介标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "content",
-            "description": "<p>公司简介内容</p>"
+            "description": "<p>公司简介内容 required</p>"
           },
           {
             "group": "Parameter",
             "type": "Array",
             "optional": false,
             "field": "images",
-            "description": "<p>公司简介图片数组</p>"
+            "description": "<p>公司简介图片数组 required</p>"
           }
         ]
       }
@@ -1609,104 +1669,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
-  },
-  {
-    "type": "get",
-    "url": "/introduction/:id",
-    "title": "根据id查询简介",
-    "name": "introduction_show",
-    "group": "Introduction",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>简介id required</p>"
-          }
-        ]
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction"
       }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>简介id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>公司简介标题</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "content",
-            "description": "<p>公司简介内容</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "images",
-            "description": "<p>公司简介图片数组</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "createdAt",
-            "description": "<p>简介创建时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "updatedAt",
-            "description": "<p>简介修改时间</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询简介成功',\n  data: {\n    _id: '5tret4656557frt466',\n    title: '国科政信科技(北京)股份有限公司是一家大型软件研发企业',\n    content: '主要从事与军政法系相关的管理和办公软件的开发,同时还负担国家国防科工局以及其他部分软件开发重任。',\n    images: [{\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n     }]\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "500",
-            "description": "<p>查询简介失败</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询简介失败'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
+    ]
   },
   {
     "type": "put",
@@ -1721,29 +1689,22 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>简介id required</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
             "field": "title",
-            "description": "<p>公司简介标题</p>"
+            "description": "<p>公司简介标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "content",
-            "description": "<p>公司简介内容</p>"
+            "description": "<p>公司简介内容 required</p>"
           },
           {
             "group": "Parameter",
             "type": "Array",
             "optional": false,
             "field": "images",
-            "description": "<p>公司简介图片数组</p>"
+            "description": "<p>公司简介图片数组 required</p>"
           }
         ]
       }
@@ -1824,7 +1785,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/introduction.js",
-    "groupTitle": "Introduction"
+    "groupTitle": "Introduction",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/introduction/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -1928,7 +1894,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/navigation.js",
-    "groupTitle": "Navigation"
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation"
+      }
+    ]
   },
   {
     "type": "delete",
@@ -1936,24 +1907,11 @@ define({ "api": [
     "title": "删除导航",
     "name": "navigation_delete",
     "group": "Navigation",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>导航id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除导航成功',\n  data: {}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除导航成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -1979,7 +1937,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/navigation.js",
-    "groupTitle": "Navigation"
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -2056,7 +2019,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/navigation.js",
-    "groupTitle": "Navigation"
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation/list"
+      }
+    ]
   },
   {
     "type": "post",
@@ -2072,14 +2040,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>导航标题</p>"
+            "description": "<p>导航标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>导航地址</p>"
+            "description": "<p>导航地址 required</p>"
           }
         ]
       }
@@ -2153,7 +2121,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/navigation.js",
-    "groupTitle": "Navigation"
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation"
+      }
+    ]
   },
   {
     "type": "put",
@@ -2166,24 +2139,17 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>导航id required</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>导航标题</p>"
+            "description": "<p>导航标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>导航地址</p>"
+            "description": "<p>导航地址 required</p>"
           }
         ]
       }
@@ -2231,7 +2197,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改导航成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '首页',\n   url: '/index',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改导航成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2257,7 +2223,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/navigation.js",
-    "groupTitle": "Navigation"
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -2270,14 +2241,14 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Integer",
+            "type": "Int",
             "optional": false,
             "field": "page",
             "description": "<p>起始页</p>"
           },
           {
             "group": "Parameter",
-            "type": "Integer",
+            "type": "Int",
             "optional": false,
             "field": "rows",
             "description": "<p>每页条数</p>"
@@ -2320,7 +2291,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -2349,7 +2320,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: {\n     solution: [{\n        _id: '5tret4656557frt466',\n        title: '企业移动平台APP开发',\n        description: '专注APP开发三十年',\n        url: '/solution',\n        imageUrl: 'public/upload/2018-5-2/default.jpg',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: {\n     solution: [{\n        _id: '5tret4656557frt466',\n        title: '企业移动平台APP开发',\n        description: '专注APP开发三十年',\n        url: '/solution',\n        imgUrl: 'public/upload/2018-5-2/default.jpg',\n        createdAt: '2018-5-2 0:0:0',\n        updatedAt: '2018-5-2 0:0:0'\n     }],\n     total: 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2375,7 +2346,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/solution.js",
-    "groupTitle": "Solution"
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution"
+      }
+    ]
   },
   {
     "type": "delete",
@@ -2383,24 +2359,11 @@ define({ "api": [
     "title": "删除解决方案",
     "name": "solution_delete",
     "group": "Solution",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>解决方案id required</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除解决方案成功',\n  data: {}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '删除解决方案成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2426,7 +2389,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/solution.js",
-    "groupTitle": "Solution"
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution/:id"
+      }
+    ]
   },
   {
     "type": "get",
@@ -2469,7 +2437,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -2491,7 +2459,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: [\n   [{\n     _id: '5tret4656557frt466',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt467',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt468',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imageUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }]\n  ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data: [\n   [{\n     _id: '5tret4656557frt466',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imgUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt467',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imgUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }, {\n     _id: '5tret4656557frt468',\n     title: '企业移动平台APP开发',\n     description: '专注APP开发三十年',\n     url: '/solution',\n     imgUrl: 'public/upload/2018-5-2/default.jpg',\n     createdAt: '2018-5-2 0:0:0',\n     updatedAt: '2018-5-2 0:0:0'\n   }]\n  ]\n}",
           "type": "json"
         }
       ]
@@ -2517,7 +2485,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/solution.js",
-    "groupTitle": "Solution"
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution/list"
+      }
+    ]
   },
   {
     "type": "post",
@@ -2533,7 +2506,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>解决方案标题</p>"
+            "description": "<p>解决方案标题 required</p>"
           },
           {
             "group": "Parameter",
@@ -2547,13 +2520,13 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>解决方案地址</p>"
+            "description": "<p>解决方案地址 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径 required</p>"
           }
         ]
@@ -2594,7 +2567,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -2616,7 +2589,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imageUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增标题成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '企业移动平台APP开发',\n   description: '专注APP开发三十年',\n   url: '/solution',\n   imgUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -2642,7 +2615,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/solution.js",
-    "groupTitle": "Solution"
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution"
+      }
+    ]
   },
   {
     "type": "put",
@@ -2655,24 +2633,17 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "ObjectId",
-            "optional": false,
-            "field": "id",
-            "description": "<p>解决方案id required</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>解决方案标题</p>"
+            "description": "<p>解决方案标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>解决方案地址</p>"
+            "description": "<p>解决方案地址 required</p>"
           },
           {
             "group": "Parameter",
@@ -2685,7 +2656,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径 required</p>"
           }
         ]
@@ -2726,7 +2697,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "imageUrl",
+            "field": "imgUrl",
             "description": "<p>图片路径</p>"
           },
           {
@@ -2774,7 +2745,12 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/solution.js",
-    "groupTitle": "Solution"
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution/:id"
+      }
+    ]
   },
   {
     "type": "post",
@@ -2787,7 +2763,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "FromData",
+            "type": "Object",
             "optional": false,
             "field": "file",
             "description": "<p>文件对象 required</p>"
@@ -2859,7 +2835,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '上传文件成功',\n  data: {\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '上传文件成功',\n  data: {\n      \"fieldname\": \"file\",\n      \"originalname\": \"default.jpg\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"image/jpeg\",\n      \"destination\": \"public/upload/2018-4-3\",\n      \"filename\": \"file-1525241755117.jpg\",\n      \"path\": \"http://10.10.10.31:7001/public\\\\upload\\\\2018-4-3\\\\default-1525241755117.jpg\",\n      \"size\": 20267\n  }\n}",
           "type": "json"
         }
       ]
@@ -2891,6 +2867,11 @@ define({ "api": [
     "type": "post",
     "url": "/login",
     "title": "用户登录",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/login"
+      }
+    ],
     "name": "login",
     "group": "Users",
     "parameter": {
@@ -2901,14 +2882,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "userName",
-            "description": "<p>用户名</p>"
+            "description": "<p>用户名 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>用户密码</p>"
+            "description": "<p>用户密码 required</p>"
           }
         ]
       }
@@ -2981,6 +2962,11 @@ define({ "api": [
     "type": "post",
     "url": "/logout",
     "title": "退出登录",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/logout"
+      }
+    ],
     "name": "logout",
     "group": "Users",
     "success": {
@@ -3019,6 +3005,11 @@ define({ "api": [
     "type": "post",
     "url": "/register",
     "title": "用户注册",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/register"
+      }
+    ],
     "name": "register",
     "group": "Users",
     "parameter": {
@@ -3029,14 +3020,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "userName",
-            "description": "<p>用户名</p>"
+            "description": "<p>用户名 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>用户密码</p>"
+            "description": "<p>用户密码 required</p>"
           }
         ]
       }
@@ -3077,7 +3068,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '注册用户成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '注册用户成功',\n   _id: '5tret4656557frt466',\n   userName: 'admin',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
           "type": "json"
         }
       ]
@@ -3109,6 +3100,11 @@ define({ "api": [
     "type": "post",
     "url": "/resetPwd",
     "title": "修改用户密码",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/resetPwd"
+      }
+    ],
     "name": "restPwd",
     "group": "Users",
     "parameter": {
@@ -3119,14 +3115,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "oldPassword",
-            "description": "<p>用户名</p>"
+            "description": "<p>用户名 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "newPassword",
-            "description": "<p>用户密码</p>"
+            "description": "<p>用户密码 required</p>"
           }
         ]
       }
@@ -3167,7 +3163,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改用户密码成功',\n  data: {\n     \"_id\": \"5ae948447c8f0c24149ba892\",\n     \"userName\": \"lcc\",\n     \"updatedAt\": \"2018-05-02T05:10:28.471Z\",\n     \"createdAt\": \"2018-05-02T05:10:28.471Z\"\n   }\n }",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '修改用户密码成功',\n  data: {\n    \"ok\": 1,\n    \"nModified\": 1,\n    \"n\": 1\n   }\n }",
           "type": "json"
         }
       ]

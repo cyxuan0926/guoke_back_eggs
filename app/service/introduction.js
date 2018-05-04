@@ -4,8 +4,8 @@ const Service = require('egg').Service;
 class IntroductionService extends Service {
   async index(pagination) {
     const { ctx } = this;
-    const page = pagination.page || 1;
-    const rows = pagination.rows || 10;
+    const page = parseInt(pagination.page) || 1;
+    const rows = parseInt(pagination.rows) || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
     pagination.title ? condition.title = pagination.title : '';
@@ -35,7 +35,7 @@ class IntroductionService extends Service {
     return result;
   }
 
-  async show(id) {
+  async edit(id) {
     const { ctx } = this;
     console.log('id', id);
     const introduction = await ctx.model.Introduction.findOne(Object.assign(id, { sysFlag: 1 }));

@@ -1,10 +1,5 @@
 'use strict';
 const Controller = require('egg').Controller;
-const indexRule = {
-  page: { type: 'int', required: false },
-  rows: { type: 'int', required: false },
-  title: { type: 'string', required: false },
-};
 const createRule = {
   title: { type: 'string', required: true },
   url: { type: 'string', required: true },
@@ -55,9 +50,6 @@ class NavigationController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
-    query.page ? query.page = parseInt(query.page) : '';
-    query.rows ? query.rows = parseInt(query.rows) : '';
-    ctx.validate(indexRule, query);
     const result = await service.navigation.index(query);
     if (result) ctx.success(result, '查询导航栏成功'); else ctx.fail('查询导航栏失败');
   }
@@ -67,8 +59,8 @@ class NavigationController extends Controller {
  * @apiName navigation/new
  * @apiGroup Navigation
  *
- * @apiParam {String} title 导航标题
- * @apiParam {String} url 导航地址
+ * @apiParam {String} title 导航标题 required
+ * @apiParam {String} url 导航地址 required
  *
  * @apiSuccess {ObjectId} _id 导航id
  * @apiSuccess {String} title 导航标题
@@ -109,9 +101,8 @@ class NavigationController extends Controller {
  * @apiName navigation/update
  * @apiGroup Navigation
  *
- * @apiParam {ObjectId} id 导航id required
- * @apiParam {String} title 导航标题
- * @apiParam {String} url 导航地址
+ * @apiParam {String} title 导航标题 required
+ * @apiParam {String} url 导航地址 required
  *
  * @apiSuccess {ObjectId} _id 导航id
  * @apiSuccess {String} title 导航标题
@@ -125,11 +116,9 @@ class NavigationController extends Controller {
  *       code: 200,
  *       msg: '修改导航成功',
  *       data: {
- *        _id: '5tret4656557frt466',
- *        title: '首页',
- *        url: '/index',
- *        createdAt: '2018-5-2 0:0:0',
- *        updatedAt: '2018-5-2 0:0:0'
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
  *       }
  *     }
  *
@@ -154,14 +143,16 @@ class NavigationController extends Controller {
  * @apiName navigation/delete
  * @apiGroup Navigation
  *
- * @apiParam {ObjectId} id 导航id required
- *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
  *       msg: '删除导航成功',
- *       data: {}
+ *       data: {
+  *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
  *     }
  *
  * @apiError 500 删除导航失败

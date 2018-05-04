@@ -1,15 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
-const indexRule = {
-  page: { type: 'int', required: false },
-  rows: { type: 'int', required: false },
-  title: { type: 'string', required: false },
-};
 const createRule = {
   title: 'string',
-  description: 'string',
+  description: { type: 'string', required: false },
   url: 'string',
-  imgUrl: { type: 'string', required: true },
+  imgUrl: 'string',
 };
 
 class SolutionController extends Controller {
@@ -18,14 +13,14 @@ class SolutionController extends Controller {
  * @apiName solution
  * @apiGroup Solution
  *
- * @apiParam {Integer} page 起始页
- * @apiParam {Integer} rows 每页条数
+ * @apiParam {Int} page 起始页
+ * @apiParam {Int} rows 每页条数
  * @apiParam {String} title 解决方案标题
  *
  * @apiSuccess {ObjectId} _id 解决方案id
  * @apiSuccess {String} title 解决方案标题
  * @apiSuccess {String} description 解决方案描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {String} url 解决方案地址
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
@@ -41,7 +36,7 @@ class SolutionController extends Controller {
  *             title: '企业移动平台APP开发',
  *             description: '专注APP开发三十年',
  *             url: '/solution',
- *             imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *             imgUrl: 'public/upload/2018-5-2/default.jpg',
  *             createdAt: '2018-5-2 0:0:0',
  *             updatedAt: '2018-5-2 0:0:0'
  *          }],
@@ -61,9 +56,6 @@ class SolutionController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
-    query.page ? query.page = parseInt(query.page) : '';
-    query.rows ? query.rows = parseInt(query.rows) : '';
-    ctx.validate(indexRule, query);
     const result = await service.solution.index(query);
     if (result) ctx.success(result, '查询解决方案成功'); else ctx.fail('查询解决方案失败');
   }
@@ -73,16 +65,16 @@ class SolutionController extends Controller {
  * @apiName solution/new
  * @apiGroup Solution
  *
- * @apiParam {String} title 解决方案标题
+ * @apiParam {String} title 解决方案标题 required
  * @apiParam {String} description 解决方案描述
- * @apiParam {String} url 解决方案地址
- * @apiParam {String} imageUrl 图片路径 required
+ * @apiParam {String} url 解决方案地址 required
+ * @apiParam {String} imgUrl 图片路径 required
  *
  * @apiSuccess {ObjectId} _id 解决方案id
  * @apiSuccess {String} title 解决方案标题
  * @apiSuccess {String} description 解决方案描述
  * @apiSuccess {String} url 解决方案地址
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
  *
@@ -96,7 +88,7 @@ class SolutionController extends Controller {
  *        title: '企业移动平台APP开发',
  *        description: '专注APP开发三十年',
  *        url: '/solution',
- *        imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *        imgUrl: 'public/upload/2018-5-2/default.jpg',
  *        createdAt: '2018-5-2 0:0:0',
  *        updatedAt: '2018-5-2 0:0:0'
  *       }
@@ -123,17 +115,16 @@ class SolutionController extends Controller {
  * @apiName solution/update
  * @apiGroup Solution
  *
- * @apiParam {ObjectId} id 解决方案id required
- * @apiParam {String} title 解决方案标题
- * @apiParam {String} url 解决方案地址
+ * @apiParam {String} title 解决方案标题 required
+ * @apiParam {String} url 解决方案地址 required
  * @apiParam {String} description 解决方案描述
- * @apiParam {String} imageUrl 图片路径 required
+ * @apiParam {String} imgUrl 图片路径 required
  *
  * @apiSuccess {ObjectId} _id 解决方案id
  * @apiSuccess {String} title 解决方案标题
  * @apiSuccess {String} url 解决方案地址
  * @apiSuccess {String} description 解决方案描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
  *
@@ -170,14 +161,16 @@ class SolutionController extends Controller {
  * @apiName solution/delete
  * @apiGroup Solution
  *
- * @apiParam {ObjectId} id 解决方案id required
- *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       code: 200,
  *       msg: '删除解决方案成功',
- *       data: {}
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
  *     }
  *
  * @apiError 500 删除解决方案失败
@@ -204,7 +197,7 @@ class SolutionController extends Controller {
  * @apiSuccess {String} title 解决方案标题
  * @apiSuccess {String} url 解决方案地址
  * @apiSuccess {String} description 解决方案描述
- * @apiSuccess {String} imageUrl 图片路径
+ * @apiSuccess {String} imgUrl 图片路径
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
  *
@@ -219,7 +212,7 @@ class SolutionController extends Controller {
  *          title: '企业移动平台APP开发',
  *          description: '专注APP开发三十年',
  *          url: '/solution',
- *          imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *          imgUrl: 'public/upload/2018-5-2/default.jpg',
  *          createdAt: '2018-5-2 0:0:0',
  *          updatedAt: '2018-5-2 0:0:0'
  *        }, {
@@ -227,7 +220,7 @@ class SolutionController extends Controller {
  *          title: '企业移动平台APP开发',
  *          description: '专注APP开发三十年',
  *          url: '/solution',
- *          imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *          imgUrl: 'public/upload/2018-5-2/default.jpg',
  *          createdAt: '2018-5-2 0:0:0',
  *          updatedAt: '2018-5-2 0:0:0'
  *        }, {
@@ -235,7 +228,7 @@ class SolutionController extends Controller {
  *          title: '企业移动平台APP开发',
  *          description: '专注APP开发三十年',
  *          url: '/solution',
- *          imageUrl: 'public/upload/2018-5-2/default.jpg',
+ *          imgUrl: 'public/upload/2018-5-2/default.jpg',
  *          createdAt: '2018-5-2 0:0:0',
  *          updatedAt: '2018-5-2 0:0:0'
  *        }]
@@ -264,7 +257,7 @@ class SolutionController extends Controller {
           solutionItem = [];
         }
       });
-      solutionList.length && ctx.success(solutionList, '查询解决方案成功');
+      ctx.success(solutionList, '查询解决方案成功');
     } else ctx.fail('查询解决方案失败');
   }
 }
