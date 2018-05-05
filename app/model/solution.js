@@ -8,7 +8,7 @@ module.exports = app => {
     description: { type: String, default: '' }, // 解决方案描述
     url: { type: String, default: '' }, // 解决方案url
     imgUrl: { type: String, required: true }, // 图片路径
-    solutionDetailId: { type: Schema.Types.ObjectId, ref: 'solutiondetail' }, // 解决方案详情id
+    solutionDetailId: { type: Schema.Types.ObjectId, ref: 'SolutionDetail' }, // 解决方案详情id
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     sysFlag: { type: Number, default: 1 },

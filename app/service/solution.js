@@ -9,7 +9,8 @@ class SolutionService extends Service {
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
     pagination.title ? condition.title = pagination.title : '';
-    const solution = await ctx.model.Solution.find(condition).skip(skip).limit(rows);
+    const solution = await ctx.model.Solution.find(condition).populate('solutionDetailId').skip(skip)
+      .limit(rows);
     const total = await ctx.model.Solution.count(condition);
     return {
       solution,
@@ -37,7 +38,7 @@ class SolutionService extends Service {
 
   async list() {
     const { ctx } = this;
-    const solution = await ctx.model.Solution.find({ sysFlag: 1 });
+    const solution = await ctx.model.Solution.find({ sysFlag: 1 }).populate('solutionDetailId');
     return solution;
   }
 }

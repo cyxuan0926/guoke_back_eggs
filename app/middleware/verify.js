@@ -6,7 +6,8 @@ module.exports = () => {
     const path = ctx.path;
     const publicPath = new RegExp('^/public');
     const listPath = path.substring(path.lastIndexOf('/'));
-    if (path === '/login' || path === '/register' || publicPath.test(path) || listPath === '/list') {
+    const sulutionPath = new RegExp('^/solution-detail.*/edit$');
+    if (path === '/login' || path === '/register' || publicPath.test(path) || listPath === '/list' || sulutionPath.test(path)) {
       await next();
     } else {
       if (userId) {

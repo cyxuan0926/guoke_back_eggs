@@ -50,6 +50,6 @@
   "apidoc": {
     "title": "国科官网api",
     "url" : "http://10.10.10.31:7001",
-    "sampleUrl" : "http://10.10.10.31:7001"
+    "sampleUrl" : "http://localhost:7001"
   }
 }

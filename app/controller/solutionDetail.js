@@ -70,7 +70,7 @@ class SolutionDetailController extends Controller {
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
  * @apiSuccess {String} technology 技术特点
- * @apiSuccess {Object} solutionId 对应的解决方案
+ * @apiSuccess {Object} solutionId 对应的解决方案id
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
  *
@@ -107,6 +107,37 @@ class SolutionDetailController extends Controller {
     if (solutionDetail) ctx.success(solutionDetail, '新增解决方案详情成功'); else ctx.fail('新增解决方案详情失败');
   }
 
+  /**
+ * @api {put} /solution-detail/:id  修改解决方案详情
+ * @apiName solution-detail/update
+ * @apiGroup SolutionDetail
+ *
+ * @apiParam {String} introduction 软件介绍
+ * @apiParam {String} constitute 组成部分和应用领域
+ * @apiParam {String} technology 技术特点
+ * @apiParam {String} solutionId 解决方案id required
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '修改解决方案详情成功',
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
+ *     }
+ *
+ * @apiError 500 修改解决方案详情失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '修改解决方案详情失败'
+ *     }
+ **/
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
@@ -114,9 +145,35 @@ class SolutionDetailController extends Controller {
     if (result) ctx.success(result, '修改解决方案详情成功'); else ctx.fail('修改解决方案详情失败');
   }
 
-  async delete() {
+  /**
+ * @api {delete} /solution-detail/:id 删除解决方案详情
+ * @apiName solutionDetail/delete
+ * @apiGroup SolutionDetail
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '删除解决方案详情成功',
+ *       data: {
+ *         "ok": 1,
+ *         "nModified": 1,
+ *         "n": 1
+ *       }
+ *     }
+ *
+ * @apiError 500 删除解决方案详情失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '删除解决方案详情失败'
+ *     }
+ */
+  async destroy() {
     const { ctx, service } = this;
-    const result = await service.solutionDetail.delete(ctx.params.id);
+    const result = await service.solutionDetail.destroy(ctx.params.id);
     if (result) ctx.success(result, '删除解决方案详情成功'); else ctx.fail('删除解决方案详情失败');
   }
 
