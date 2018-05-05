@@ -24,7 +24,6 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /resetPwd 修改用户密码
- * @apiSampleRequest http://10.10.10.31:7001/resetPwd
  * @apiName restPwd
  * @apiGroup Users
  *
@@ -66,7 +65,6 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /login 用户登录
- * @apiSampleRequest http://10.10.10.31:7001/login
  * @apiName login
  * @apiGroup Users
  *
@@ -116,7 +114,6 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /logout 退出登录
- * @apiSampleRequest http://10.10.10.31:7001/logout
  * @apiName logout
  * @apiGroup Users
  *
@@ -147,7 +144,6 @@ class UsersController extends Controller {
 
   /**
  * @api {post} /register 用户注册
- * @apiSampleRequest http://10.10.10.31:7001/register
  * @apiName register
  * @apiGroup Users
  *

@@ -8,12 +8,6 @@ class SolutionDetailService extends Service {
     const rows = parseInt(pagination.rows) || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
-    // let solution = {};
-    // if (pagination.solutionId) {
-    //   condition._id = pagination.solutionId;
-    //   solution = await ctx.model.Solution.findOne(condition);
-    //   delete condition._id;
-    // }
     const solutionDetail = await ctx.model.SolutionDetail.find(condition).populate('solutionId').skip(skip)
       .limit(rows);
     const total = await ctx.model.SolutionDetail.count(condition);
@@ -61,6 +55,14 @@ class SolutionDetailService extends Service {
     const { ctx } = this;
     const condition = { sysFlag: 1 };
     condition.solutionId = _id;
+    const solutionDetail = await ctx.model.SolutionDetail.findOne(condition).populate('solutionId');
+    return solutionDetail;
+  }
+
+  async show(_id) {
+    const { ctx } = this;
+    const condition = { sysFlag: 1 };
+    condition._id = _id;
     const solutionDetail = await ctx.model.SolutionDetail.findOne(condition).populate('solutionId');
     return solutionDetail;
   }

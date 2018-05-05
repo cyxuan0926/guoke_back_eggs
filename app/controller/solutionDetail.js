@@ -221,6 +221,51 @@ class SolutionDetailController extends Controller {
     const solutionDetail = await service.solutionDetail.edit(ctx.params.id);
     if (solutionDetail) ctx.success(solutionDetail, '查询解决方案详情成功'); else ctx.fail('查询解决方案详情失败');
   }
+
+  /**
+ * @api {get} /solution-detail/:id 根据解决方案详情id查询解决方案详情
+ * @apiName solutionDetail/show
+ * @apiGroup SolutionDetail
+ *
+ * @apiSuccess {ObjectId} _id 解决方案详情id
+ * @apiSuccess {String} introduction 软件介绍
+ * @apiSuccess {String} constitute 组成部分和应用领域
+ * @apiSuccess {String} technology 技术特点
+ * @apiSuccess {String} solutionId 对应的解决方案
+ * @apiSuccess {Date} createdAt 解决方案创建时间
+ * @apiSuccess {Date} updatedAt 解决方案修改时间
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '查询解决方案详情成功',
+ *       data: {
+ *          "_id": "5aec94a8d3f49a2fc4ec8944",
+ *          "solutionId": "5aeb3710c4628132ec43b4f6",
+ *          "sysFlag": 1,
+ *          "updatedAt": "2018-05-04T17:13:12.756Z",
+ *          "createdAt": "2018-05-04T17:13:12.756Z",
+ *          "technology": "springboot&vue.js",
+ *          "constitute": "罪犯数据信息",
+ *          "introduction": "罪犯数据库"
+ *       }
+ *     }
+ *
+ * @apiError 500 查询解决方案详情失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '查询解决方案详情失败'
+ *     }
+ */
+  async show() {
+    const { ctx, service } = this;
+    const solutionDetail = await service.solutionDetail.show(ctx.params.id);
+    if (solutionDetail) ctx.success(solutionDetail, '查询解决方案详情成功'); else ctx.fail('查询解决方案详情失败');
+  }
 }
 
 module.exports = SolutionDetailController;

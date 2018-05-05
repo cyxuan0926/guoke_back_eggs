@@ -2486,6 +2486,102 @@ define({ "api": [
     ]
   },
   {
+    "type": "get",
+    "url": "/solution-detail/:id",
+    "title": "根据解决方案详情id查询解决方案详情",
+    "name": "solutionDetail_show",
+    "group": "SolutionDetail",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案详情id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "constitute",
+            "description": "<p>组成部分和应用领域</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "technology",
+            "description": "<p>技术特点</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "solutionId",
+            "description": "<p>对应的解决方案</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案详情失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案详情失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solutionDetail.js",
+    "groupTitle": "SolutionDetail",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:7001/solution-detail/:id"
+      }
+    ]
+  },
+  {
     "type": "post",
     "url": "/solution-detail",
     "title": "新增解决方案详情",
@@ -3329,11 +3425,6 @@ define({ "api": [
     "type": "post",
     "url": "/login",
     "title": "用户登录",
-    "sampleRequest": [
-      {
-        "url": "http://10.10.10.31:7001/login"
-      }
-    ],
     "name": "login",
     "group": "Users",
     "parameter": {
@@ -3418,17 +3509,17 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/users.js",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:7001/login"
+      }
+    ]
   },
   {
     "type": "post",
     "url": "/logout",
     "title": "退出登录",
-    "sampleRequest": [
-      {
-        "url": "http://10.10.10.31:7001/logout"
-      }
-    ],
     "name": "logout",
     "group": "Users",
     "success": {
@@ -3461,17 +3552,17 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/users.js",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:7001/logout"
+      }
+    ]
   },
   {
     "type": "post",
     "url": "/register",
     "title": "用户注册",
-    "sampleRequest": [
-      {
-        "url": "http://10.10.10.31:7001/register"
-      }
-    ],
     "name": "register",
     "group": "Users",
     "parameter": {
@@ -3556,17 +3647,17 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/users.js",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:7001/register"
+      }
+    ]
   },
   {
     "type": "post",
     "url": "/resetPwd",
     "title": "修改用户密码",
-    "sampleRequest": [
-      {
-        "url": "http://10.10.10.31:7001/resetPwd"
-      }
-    ],
     "name": "restPwd",
     "group": "Users",
     "parameter": {
@@ -3651,6 +3742,11 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "app/controller/users.js",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:7001/resetPwd"
+      }
+    ]
   }
 ] });
