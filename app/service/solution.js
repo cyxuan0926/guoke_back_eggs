@@ -33,7 +33,10 @@ class SolutionService extends Service {
   async destroy(_id) {
     const { ctx } = this;
     const result = await ctx.model.Solution.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
-    return result;
+    if (result) {
+      const solutionDetailResult = await ctx.model.SolutionDetail.findOneAndUpdate({ solutionId: _id }, { solutionId: '' });
+      if (solutionDetailResult) return result;
+    } return '';
   }
 
   async list() {
