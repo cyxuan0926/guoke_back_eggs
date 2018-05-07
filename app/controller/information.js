@@ -2,11 +2,11 @@
 const Controller = require('egg').Controller;
 const createRule = {
   company: 'string',
-  shareCode: { type: 'string', required: false },
   address: 'string',
   tel: 'string',
-  fax: { type: 'string', required: false },
-  email: { type: 'string', required: false },
+  shareCode: { type: 'string', required: false, allowEmpty: true },
+  fax: { type: 'string', required: false, allowEmpty: true },
+  email: { type: 'email', required: false, allowEmpty: true },
 };
 
 class InformationController extends Controller {

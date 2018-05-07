@@ -2,7 +2,6 @@
 const Controller = require('egg').Controller;
 const createRule = {
   title: 'string',
-  description: { type: 'string', required: false },
   url: 'string',
   imgUrl: 'string',
 };

@@ -4,6 +4,7 @@ const createRule = {
   title: 'string',
   url: 'string',
   imgUrl: 'string',
+  description: { type: 'string', required: false, allowEmpty: true },
 };
 
 class BannerController extends Controller {

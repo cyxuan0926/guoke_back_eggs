@@ -2,11 +2,11 @@
 const Controller = require('egg').Controller;
 const createRule = {
   userName: 'string',
-  password: 'string',
+  password: 'password',
 };
 const updateRule = {
-  oldPassword: 'string',
-  newPassword: 'string',
+  oldPassword: 'password',
+  newPassword: 'password',
 };
 
 class UsersController extends Controller {

@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 const createRule = {
   title: 'string',
   content: 'string',
-  images: 'array',
+  images: { type: 'array', itemType: 'object', min: 0 },
 };
 
 class IntroductionController extends Controller {
