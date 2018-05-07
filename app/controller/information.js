@@ -1,10 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
 const createRule = {
-  company: { type: 'string', required: true },
+  company: 'string',
   shareCode: { type: 'string', required: false },
-  address: { type: 'string', required: true },
-  tel: { type: 'string', required: true },
+  address: 'string',
+  tel: 'string',
   fax: { type: 'string', required: false },
   email: { type: 'string', required: false },
 };

@@ -1,10 +1,9 @@
 'use strict';
 const Controller = require('egg').Controller;
 const createRule = {
-  title: { type: 'string', required: false },
-  description: { type: 'string', required: false },
-  url: { type: 'string', required: false },
-  imgUrl: { type: 'string', required: true },
+  title: 'string',
+  url: 'string',
+  imgUrl: 'string',
 };
 
 class BannerController extends Controller {
@@ -64,9 +63,9 @@ class BannerController extends Controller {
  * @apiName banner/new
  * @apiGroup Banner
  *
- * @apiParam {String} title 标题
+ * @apiParam {String} title 标题 required
  * @apiParam {String} description 标题描述
- * @apiParam {String} url 标题地址
+ * @apiParam {String} url 标题地址 required
  * @apiParam {String} imgUrl 标题图片路径 required
  *
  * @apiSuccess {ObjectId} _id 标题id
@@ -114,8 +113,8 @@ class BannerController extends Controller {
  * @apiName banner/update
  * @apiGroup Banner
  *
- * @apiParam {String} title 标题
- * @apiParam {String} url 标题地址
+ * @apiParam {String} title 标题 required
+ * @apiParam {String} url 标题地址 required
  * @apiParam {String} description 标题路径
  * @apiParam {String} imgUrl 图片路径 required
  *

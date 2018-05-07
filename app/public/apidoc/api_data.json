@@ -118,7 +118,7 @@
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/banner"
+        "url": "http://10.10.10.31:7001/banner"
       }
     ]
   },
@@ -161,7 +161,7 @@
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/banner/:id"
+        "url": "http://10.10.10.31:7001/banner/:id"
       }
     ]
   },
@@ -257,7 +257,7 @@
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/banner/list"
+        "url": "http://10.10.10.31:7001/banner/list"
       }
     ]
   },
@@ -275,7 +275,7 @@
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>标题</p>"
+            "description": "<p>标题 required</p>"
           },
           {
             "group": "Parameter",
@@ -289,7 +289,7 @@
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>标题地址</p>"
+            "description": "<p>标题地址 required</p>"
           },
           {
             "group": "Parameter",
@@ -387,7 +387,7 @@
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/banner"
+        "url": "http://10.10.10.31:7001/banner"
       }
     ]
   },
@@ -405,14 +405,14 @@
             "type": "String",
             "optional": false,
             "field": "title",
-            "description": "<p>标题</p>"
+            "description": "<p>标题 required</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>标题地址</p>"
+            "description": "<p>标题地址 required</p>"
           },
           {
             "group": "Parameter",
@@ -510,7 +510,7 @@
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/banner/:id"
+        "url": "http://10.10.10.31:7001/banner/:id"
       }
     ]
   },
@@ -640,7 +640,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information"
+        "url": "http://10.10.10.31:7001/information"
       }
     ]
   },
@@ -683,7 +683,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information/:id"
+        "url": "http://10.10.10.31:7001/information/:id"
       }
     ]
   },
@@ -793,7 +793,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information/:id/edit"
+        "url": "http://10.10.10.31:7001/information/:id/edit"
       }
     ]
   },
@@ -903,7 +903,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information/list"
+        "url": "http://10.10.10.31:7001/information/list"
       }
     ]
   },
@@ -1061,7 +1061,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information"
+        "url": "http://10.10.10.31:7001/information"
       }
     ]
   },
@@ -1219,7 +1219,7 @@
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/information/:id"
+        "url": "http://10.10.10.31:7001/information/:id"
       }
     ]
   },
@@ -1335,7 +1335,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction"
+        "url": "http://10.10.10.31:7001/introduction"
       }
     ]
   },
@@ -1378,7 +1378,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction/:id"
+        "url": "http://10.10.10.31:7001/introduction/:id"
       }
     ]
   },
@@ -1467,7 +1467,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction/:id/edit"
+        "url": "http://10.10.10.31:7001/introduction/:id/edit"
       }
     ]
   },
@@ -1556,7 +1556,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction/list"
+        "url": "http://10.10.10.31:7001/introduction/list"
       }
     ]
   },
@@ -1672,7 +1672,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction"
+        "url": "http://10.10.10.31:7001/introduction"
       }
     ]
   },
@@ -1788,7 +1788,7 @@
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/introduction/:id"
+        "url": "http://10.10.10.31:7001/introduction/:id"
       }
     ]
   },
@@ -1897,7 +1897,7 @@
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/navigation"
+        "url": "http://10.10.10.31:7001/navigation"
       }
     ]
   },
@@ -1940,7 +1940,7 @@
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/navigation/:id"
+        "url": "http://10.10.10.31:7001/navigation/:id"
       }
     ]
   },
@@ -2022,7 +2022,7 @@
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/navigation/list"
+        "url": "http://10.10.10.31:7001/navigation/list"
       }
     ]
   },
@@ -2124,7 +2124,7 @@
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/navigation"
+        "url": "http://10.10.10.31:7001/navigation"
       }
     ]
   },
@@ -2226,7 +2226,7 @@
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/navigation/:id"
+        "url": "http://10.10.10.31:7001/navigation/:id"
       }
     ]
   },
@@ -2342,7 +2342,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail"
+        "url": "http://10.10.10.31:7001/solution-detail"
       }
     ]
   },
@@ -2385,7 +2385,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2481,7 +2481,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail/:id/edit"
+        "url": "http://10.10.10.31:7001/solution-detail/:id/edit"
       }
     ]
   },
@@ -2577,7 +2577,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2707,7 +2707,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail"
+        "url": "http://10.10.10.31:7001/solution-detail"
       }
     ]
   },
@@ -2784,7 +2784,7 @@
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2907,7 +2907,7 @@
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution"
+        "url": "http://10.10.10.31:7001/solution"
       }
     ]
   },
@@ -2950,7 +2950,7 @@
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution/:id"
+        "url": "http://10.10.10.31:7001/solution/:id"
       }
     ]
   },
@@ -3046,7 +3046,7 @@
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution/list"
+        "url": "http://10.10.10.31:7001/solution/list"
       }
     ]
   },
@@ -3176,7 +3176,7 @@
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution"
+        "url": "http://10.10.10.31:7001/solution"
       }
     ]
   },
@@ -3306,7 +3306,7 @@
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/solution/:id"
+        "url": "http://10.10.10.31:7001/solution/:id"
       }
     ]
   },
@@ -3512,7 +3512,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/login"
+        "url": "http://10.10.10.31:7001/login"
       }
     ]
   },
@@ -3555,7 +3555,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/logout"
+        "url": "http://10.10.10.31:7001/logout"
       }
     ]
   },
@@ -3650,7 +3650,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/register"
+        "url": "http://10.10.10.31:7001/register"
       }
     ]
   },
@@ -3745,7 +3745,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:7001/resetPwd"
+        "url": "http://10.10.10.31:7001/resetPwd"
       }
     ]
   }

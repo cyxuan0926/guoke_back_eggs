@@ -34,7 +34,7 @@ class SolutionService extends Service {
     const { ctx } = this;
     const result = await ctx.model.Solution.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     if (result) {
-      const solutionDetailResult = await ctx.model.SolutionDetail.findOneAndUpdate({ solutionId: _id }, { solutionId: '' });
+      const solutionDetailResult = await ctx.model.SolutionDetail.findOneAndUpdate({ solutionId: _id }, { solutionId: null });
       if (solutionDetailResult) return result;
     } return '';
   }

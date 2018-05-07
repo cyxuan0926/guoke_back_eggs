@@ -20,8 +20,9 @@ class SolutionDetailService extends Service {
   async create(solutionDetail) {
     const { ctx } = this;
     const condition = { sysFlag: 1 };
-    condition.solutionId = solutionDetail.solutionId;
+    const solutionId = solutionDetail.solutionId;
     delete solutionDetail.solutionId;
+    condition.solutionId = solutionId;
     const solutionDetails = await ctx.model.SolutionDetail.findOne(condition);
     if (!solutionDetails) {
       const solution = await ctx.model.Solution.findOne({ _id: condition.solutionId, sysFlag: 1 });
@@ -49,7 +50,7 @@ class SolutionDetailService extends Service {
     const { ctx } = this;
     const result = await ctx.model.SolutionDetail.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     if (result) {
-      const solutionResult = await ctx.model.Solution.findOneAndUpdate({ solutionDetailId: _id }, { solutionDetailId: '' });
+      const solutionResult = await ctx.model.Solution.findOneAndUpdate({ solutionDetailId: _id }, { solutionDetailId: null });
       if (solutionResult) return result;
     } return '';
   }

@@ -1,8 +1,8 @@
 'use strict';
 const Controller = require('egg').Controller;
 const createRule = {
-  title: { type: 'string', required: true },
-  url: { type: 'string', required: true },
+  title: 'string',
+  url: 'string',
 };
 
 class NavigationController extends Controller {

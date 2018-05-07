@@ -1,12 +1,12 @@
 'use strict';
 const Controller = require('egg').Controller;
 const createRule = {
-  userName: { type: 'string', required: true },
-  password: { type: 'string', required: true },
+  userName: 'string',
+  password: 'string',
 };
 const updateRule = {
-  oldPassword: { type: 'string', required: true },
-  newPassword: { type: 'string', required: true },
+  oldPassword: 'string',
+  newPassword: 'string',
 };
 
 class UsersController extends Controller {

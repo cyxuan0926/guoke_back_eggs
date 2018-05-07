@@ -1,9 +1,9 @@
 'use strict';
 const Controller = require('egg').Controller;
 const createRule = {
-  title: { type: 'string', required: true },
-  content: { type: 'string', required: true },
-  images: { type: 'array', required: true },
+  title: 'string',
+  content: 'string',
+  images: 'array',
 };
 
 class IntroductionController extends Controller {
