@@ -140,7 +140,7 @@ class NavigationController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.navigation.update(ctx.params.id, ctx.reques.body);
+    const result = await service.navigation.update(ctx.params.id, ctx.request.body);
     if (result) ctx.success(result, '修改导航成功'); else ctx.fail('修改导航失败');
   }
 

@@ -118,7 +118,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/banner"
+        "url": "http://10.10.10.208:7001/banner"
       }
     ]
   },
@@ -161,7 +161,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/banner/:id"
+        "url": "http://10.10.10.208:7001/banner/:id"
       }
     ]
   },
@@ -257,7 +257,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/banner/list"
+        "url": "http://10.10.10.208:7001/banner/list"
       }
     ]
   },
@@ -387,7 +387,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/banner"
+        "url": "http://10.10.10.208:7001/banner"
       }
     ]
   },
@@ -510,7 +510,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/banner/:id"
+        "url": "http://10.10.10.208:7001/banner/:id"
       }
     ]
   },
@@ -640,7 +640,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information"
+        "url": "http://10.10.10.208:7001/information"
       }
     ]
   },
@@ -683,7 +683,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information/:id"
+        "url": "http://10.10.10.208:7001/information/:id"
       }
     ]
   },
@@ -793,7 +793,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information/:id/edit"
+        "url": "http://10.10.10.208:7001/information/:id/edit"
       }
     ]
   },
@@ -903,7 +903,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information/list"
+        "url": "http://10.10.10.208:7001/information/list"
       }
     ]
   },
@@ -1061,7 +1061,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information"
+        "url": "http://10.10.10.208:7001/information"
       }
     ]
   },
@@ -1219,7 +1219,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/information/:id"
+        "url": "http://10.10.10.208:7001/information/:id"
       }
     ]
   },
@@ -1335,7 +1335,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction"
+        "url": "http://10.10.10.208:7001/introduction"
       }
     ]
   },
@@ -1378,7 +1378,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction/:id"
+        "url": "http://10.10.10.208:7001/introduction/:id"
       }
     ]
   },
@@ -1467,7 +1467,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction/:id/edit"
+        "url": "http://10.10.10.208:7001/introduction/:id/edit"
       }
     ]
   },
@@ -1556,7 +1556,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction/list"
+        "url": "http://10.10.10.208:7001/introduction/list"
       }
     ]
   },
@@ -1672,7 +1672,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction"
+        "url": "http://10.10.10.208:7001/introduction"
       }
     ]
   },
@@ -1788,7 +1788,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/introduction/:id"
+        "url": "http://10.10.10.208:7001/introduction/:id"
       }
     ]
   },
@@ -1897,7 +1897,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/navigation"
+        "url": "http://10.10.10.208:7001/navigation"
       }
     ]
   },
@@ -1940,7 +1940,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/navigation/:id"
+        "url": "http://10.10.10.208:7001/navigation/:id"
       }
     ]
   },
@@ -2022,7 +2022,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/navigation/list"
+        "url": "http://10.10.10.208:7001/navigation/list"
       }
     ]
   },
@@ -2124,7 +2124,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/navigation"
+        "url": "http://10.10.10.208:7001/navigation"
       }
     ]
   },
@@ -2226,7 +2226,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/navigation/:id"
+        "url": "http://10.10.10.208:7001/navigation/:id"
       }
     ]
   },
@@ -2349,7 +2349,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail"
+        "url": "http://10.10.10.208:7001/solution-detail"
       }
     ]
   },
@@ -2392,7 +2392,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail/:id"
+        "url": "http://10.10.10.208:7001/solution-detail/:id"
       }
     ]
   },
@@ -2488,7 +2488,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail/:id/edit"
+        "url": "http://10.10.10.208:7001/solution-detail/:id/edit"
       }
     ]
   },
@@ -2584,7 +2584,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail/:id"
+        "url": "http://10.10.10.208:7001/solution-detail/:id"
       }
     ]
   },
@@ -2721,7 +2721,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail"
+        "url": "http://10.10.10.208:7001/solution-detail"
       }
     ]
   },
@@ -2805,7 +2805,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution-detail/:id"
+        "url": "http://10.10.10.208:7001/solution-detail/:id"
       }
     ]
   },
@@ -2928,7 +2928,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution"
+        "url": "http://10.10.10.208:7001/solution"
       }
     ]
   },
@@ -2971,7 +2971,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution/:id"
+        "url": "http://10.10.10.208:7001/solution/:id"
       }
     ]
   },
@@ -3067,7 +3067,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution/list"
+        "url": "http://10.10.10.208:7001/solution/list"
       }
     ]
   },
@@ -3197,7 +3197,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution"
+        "url": "http://10.10.10.208:7001/solution"
       }
     ]
   },
@@ -3327,7 +3327,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/solution/:id"
+        "url": "http://10.10.10.208:7001/solution/:id"
       }
     ]
   },
@@ -3533,7 +3533,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/login"
+        "url": "http://10.10.10.208:7001/login"
       }
     ]
   },
@@ -3576,7 +3576,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/logout"
+        "url": "http://10.10.10.208:7001/logout"
       }
     ]
   },
@@ -3671,7 +3671,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/register"
+        "url": "http://10.10.10.208:7001/register"
       }
     ]
   },
@@ -3766,7 +3766,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.31:7001/resetPwd"
+        "url": "http://10.10.10.208:7001/resetPwd"
       }
     ]
   }

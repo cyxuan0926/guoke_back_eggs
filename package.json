@@ -49,7 +49,7 @@
   "license": "MIT",
   "apidoc": {
     "title": "国科官网api",
-    "url" : "http://10.10.10.31:7001",
-    "sampleUrl" : "http://10.10.10.31:7001"
+    "url" : "http://10.10.10.208:7001",
+    "sampleUrl" : "http://10.10.10.208:7001"
   }
 }
