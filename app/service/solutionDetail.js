@@ -8,6 +8,7 @@ class SolutionDetailService extends Service {
     const rows = parseInt(pagination.rows) || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
+    pagination.introduction && (condition.introduction = pagination.introduction);
     const solutionDetail = await ctx.model.SolutionDetail.find(condition).populate('solutionId').skip(skip)
       .limit(rows);
     const total = await ctx.model.SolutionDetail.count(condition);
@@ -19,13 +20,11 @@ class SolutionDetailService extends Service {
 
   async create(solutionDetail) {
     const { ctx } = this;
-    const condition = { sysFlag: 1 };
     const solutionId = solutionDetail.solutionId;
     delete solutionDetail.solutionId;
-    condition.solutionId = solutionId;
-    const solutionDetails = await ctx.model.SolutionDetail.findOne(condition);
+    const solutionDetails = await ctx.model.SolutionDetail.findOne({ solutionId, sysFlag: 1 });
     if (!solutionDetails) {
-      const solution = await ctx.model.Solution.findOne({ _id: condition.solutionId, sysFlag: 1 });
+      const solution = await ctx.model.Solution.findOne({ _id: solutionId, sysFlag: 1 });
       const solutionDe = await ctx.model.SolutionDetail.create(solutionDetail);
       solutionDe.solutionId = solution._id;
       const result = await solutionDe.save();
@@ -36,14 +35,15 @@ class SolutionDetailService extends Service {
     } return '';
   }
 
-  async update(solutionDetail) {
+  async update(_id, solutionDetail) {
     const { ctx } = this;
     const condition = { sysFlag: 1 };
     condition._id = solutionDetail.solutionId;
     const solution = await ctx.model.Solution.findOne(condition);
-    solutionDetail.solutionId = solution;
-    const result = await ctx.model.SolutionDetail.update(Object.assign(solutionDetail, { updatedAt: Date.now() }));
-    return result;
+    if (solution) {
+      const result = await ctx.model.SolutionDetail.findOneAndUpdate({ _id }, Object.assign(solutionDetail, { updatedAt: Date.now() }));
+      return result;
+    } return '';
   }
 
   async destroy(_id) {

@@ -2252,6 +2252,13 @@ define({ "api": [
             "optional": false,
             "field": "rows",
             "description": "<p>每页条数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "introduction",
+            "description": "<p>软件介绍</p>"
           }
         ]
       }
@@ -2282,7 +2289,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "technology",
             "description": "<p>技术特点</p>"
@@ -2313,7 +2320,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     solutionDetail: [{\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n     }],\n     total: 1\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     solutionDetail: [{\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": [\"springboot&vue.js\"],\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n     }],\n     total: 1\n  }\n}",
           "type": "json"
         }
       ]
@@ -2421,7 +2428,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "technology",
             "description": "<p>技术特点</p>"
@@ -2452,7 +2459,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": [\"springboot&vue.js\"],\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -2517,7 +2524,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "technology",
             "description": "<p>技术特点</p>"
@@ -2548,7 +2555,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": [\"springboot&vue.js\"],\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -2594,8 +2601,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "name",
+            "description": "<p>软件名称 required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "introduction",
-            "description": "<p>软件介绍</p>"
+            "description": "<p>软件介绍 required</p>"
           },
           {
             "group": "Parameter",
@@ -2606,7 +2620,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "technology",
             "description": "<p>技术特点</p>"
@@ -2678,7 +2692,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": \"springboot&vue.js\",\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '新增解决方案详情成功',\n  data: {\n     \"_id\": \"5aec94a8d3f49a2fc4ec8944\",\n     \"solutionId\": \"5aeb3710c4628132ec43b4f6\",\n     \"sysFlag\": 1,\n     \"updatedAt\": \"2018-05-04T17:13:12.756Z\",\n     \"createdAt\": \"2018-05-04T17:13:12.756Z\",\n     \"technology\": [\"springboot&vue.js\"],\n     \"constitute\": \"罪犯数据信息\",\n     \"introduction\": \"罪犯数据库\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -2724,8 +2738,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "name",
+            "description": "<p>软件名称 required</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "introduction",
-            "description": "<p>软件介绍</p>"
+            "description": "<p>软件介绍 required</p>"
           },
           {
             "group": "Parameter",
@@ -2736,7 +2757,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "technology",
             "description": "<p>技术特点</p>"

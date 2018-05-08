@@ -1,5 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
+const indexRule = {
+  page: { type: 'string', allowEmpty: true },
+  rows: { type: 'string', allowEmpty: true },
+  title: { type: 'string', required: false, allowEmpty: true },
+};
 const createRule = {
   title: 'string',
   url: 'string',
@@ -50,6 +55,7 @@ class NavigationController extends Controller {
   async index() {
     const { ctx, service } = this;
     const query = ctx.query;
+    ctx.validate(indexRule, query);
     const result = await service.navigation.index(query);
     if (result) ctx.success(result, '查询导航栏成功'); else ctx.fail('查询导航栏失败');
   }

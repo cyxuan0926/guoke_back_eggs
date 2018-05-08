@@ -1,7 +1,16 @@
 'use strict';
 const Controller = require('egg').Controller;
+const indexRule = {
+  page: { type: 'string', allowEmpty: true },
+  rows: { type: 'string', allowEmpty: true },
+  introduction: { type: 'string', required: false, allowEmpty: true },
+};
 const createRule = {
+  name: 'string',
   solutionId: 'string',
+  introduction: 'string',
+  constitute: { type: 'string', required: false, allowEmpty: true },
+  technology: { type: 'array', required: false, min: 0, itemType: 'string' },
 };
 
 class SolutionDetailController extends Controller {
@@ -12,11 +21,12 @@ class SolutionDetailController extends Controller {
  *
  * @apiParam {Int} page 起始页
  * @apiParam {Int} rows 每页条数
+ * @apiParam {String} introduction 软件介绍
  *
  * @apiSuccess {ObjectId} _id 解决方案详情id
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
- * @apiSuccess {String} technology 技术特点
+ * @apiSuccess {Array} technology 技术特点
  * @apiSuccess {String} solutionId 对应的解决方案
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
@@ -33,7 +43,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
- *          "technology": "springboot&vue.js",
+ *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
  *          }],
@@ -52,6 +62,7 @@ class SolutionDetailController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
+    ctx.validate(indexRule, ctx.query);
     const solutionDetail = await service.solutionDetail.index(ctx.query);
     if (solutionDetail) ctx.success(solutionDetail, '查询解决方案详情成功'); else ctx.fail('查询解决方案详情失败');
   }
@@ -61,9 +72,10 @@ class SolutionDetailController extends Controller {
  * @apiName solution-detail/new
  * @apiGroup SolutionDetail
  *
- * @apiParam {String} introduction 软件介绍
+ * @apiParam {String} name 软件名称 required
+ * @apiParam {String} introduction 软件介绍 required
  * @apiParam {String} constitute 组成部分和应用领域
- * @apiParam {String} technology 技术特点
+ * @apiParam {Array} technology 技术特点
  * @apiParam {String} solutionId 解决方案id required
  *
  * @apiSuccess {ObjectId} _id 解决方案详情id
@@ -85,7 +97,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
- *          "technology": "springboot&vue.js",
+ *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
  *       }
@@ -102,8 +114,10 @@ class SolutionDetailController extends Controller {
  **/
   async create() {
     const { ctx, service } = this;
+    const body = ctx.request.body;
+    body.technology = body.technology ? body.technology.split(',') : [];
     ctx.validate(createRule);
-    const solutionDetail = await service.solutionDetail.create(ctx.request.body);
+    const solutionDetail = await service.solutionDetail.create(body);
     if (solutionDetail) ctx.success(solutionDetail, '新增解决方案详情成功'); else ctx.fail('新增解决方案详情失败');
   }
 
@@ -112,9 +126,10 @@ class SolutionDetailController extends Controller {
  * @apiName solution-detail/update
  * @apiGroup SolutionDetail
  *
- * @apiParam {String} introduction 软件介绍
+ * @apiParam {String} name 软件名称 required
+ * @apiParam {String} introduction 软件介绍 required
  * @apiParam {String} constitute 组成部分和应用领域
- * @apiParam {String} technology 技术特点
+ * @apiParam {Array} technology 技术特点
  * @apiParam {String} solutionId 解决方案id required
  *
  * @apiSuccessExample Success-Response:
@@ -140,8 +155,10 @@ class SolutionDetailController extends Controller {
  **/
   async update() {
     const { ctx, service } = this;
+    const body = ctx.request.body;
+    body.technology = body.technology ? body.technology.split(',') : [];
     ctx.validate(createRule);
-    const result = await service.solutionDetail.update(ctx.request.body);
+    const result = await service.solutionDetail.update(ctx.params.id, body);
     if (result) ctx.success(result, '修改解决方案详情成功'); else ctx.fail('修改解决方案详情失败');
   }
 
@@ -185,7 +202,7 @@ class SolutionDetailController extends Controller {
  * @apiSuccess {ObjectId} _id 解决方案详情id
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
- * @apiSuccess {String} technology 技术特点
+ * @apiSuccess {Array} technology 技术特点
  * @apiSuccess {String} solutionId 对应的解决方案
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
@@ -201,7 +218,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
- *          "technology": "springboot&vue.js",
+ *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
  *       }
@@ -230,7 +247,7 @@ class SolutionDetailController extends Controller {
  * @apiSuccess {ObjectId} _id 解决方案详情id
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
- * @apiSuccess {String} technology 技术特点
+ * @apiSuccess {Array} technology 技术特点
  * @apiSuccess {String} solutionId 对应的解决方案
  * @apiSuccess {Date} createdAt 解决方案创建时间
  * @apiSuccess {Date} updatedAt 解决方案修改时间
@@ -246,7 +263,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
- *          "technology": "springboot&vue.js",
+ *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
  *       }

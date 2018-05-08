@@ -8,7 +8,7 @@ class SolutionService extends Service {
     const rows = parseInt(pagination.rows) || 10;
     const skip = (page - 1) * rows;
     const condition = { sysFlag: 1 };
-    pagination.title ? condition.title = pagination.title : '';
+    pagination.title && (condition.title = pagination.title);
     const solution = await ctx.model.Solution.find(condition).populate('solutionDetailId').skip(skip)
       .limit(rows);
     const total = await ctx.model.Solution.count(condition);

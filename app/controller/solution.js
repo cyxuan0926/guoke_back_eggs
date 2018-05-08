@@ -1,5 +1,10 @@
 'use strict';
 const Controller = require('egg').Controller;
+const indexRule = {
+  page: { type: 'string', allowEmpty: true },
+  rows: { type: 'string', allowEmpty: true },
+  title: { type: 'string', required: false, allowEmpty: true },
+};
 const createRule = {
   title: 'string',
   url: 'string',
@@ -54,6 +59,7 @@ class SolutionController extends Controller {
  */
   async index() {
     const { ctx, service } = this;
+    ctx.validate(indexRule, ctx.query);
     const query = ctx.query;
     const result = await service.solution.index(query);
     if (result) ctx.success(result, '查询解决方案成功'); else ctx.fail('查询解决方案失败');
