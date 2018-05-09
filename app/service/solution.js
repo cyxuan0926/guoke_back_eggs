@@ -44,6 +44,14 @@ class SolutionService extends Service {
     const solution = await ctx.model.Solution.find({ sysFlag: 1 }).populate('solutionDetailId');
     return solution;
   }
+
+  async edit(id) {
+    const { ctx } = this;
+    const condition = { sysFlag: 1 };
+    condition._id = id;
+    const solution = await ctx.model.Solution.findOne(condition);
+    return solution;
+  }
 }
 
 module.exports = SolutionService;

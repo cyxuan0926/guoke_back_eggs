@@ -118,7 +118,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/banner"
+        "url": "http://10.10.10.31:7001/banner"
       }
     ]
   },
@@ -161,7 +161,103 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/banner/:id"
+        "url": "http://10.10.10.31:7001/banner/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/banner/:id/edit",
+    "title": "根据id查询标题栏",
+    "name": "banner_edit",
+    "group": "Banner",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>标题id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>标题地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>标题描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imgUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>标题创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>标题修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询标题栏成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '国科',\n   description: '国科详情',\n   url: '/index',\n   imgUrl: 'public/upload/2018-5-2/default.jpg',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询标题栏失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询标题栏失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/banner.js",
+    "groupTitle": "Banner",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/banner/:id/edit"
       }
     ]
   },
@@ -257,7 +353,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/banner/list"
+        "url": "http://10.10.10.31:7001/banner/list"
       }
     ]
   },
@@ -387,7 +483,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/banner"
+        "url": "http://10.10.10.31:7001/banner"
       }
     ]
   },
@@ -510,7 +606,7 @@ define({ "api": [
     "groupTitle": "Banner",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/banner/:id"
+        "url": "http://10.10.10.31:7001/banner/:id"
       }
     ]
   },
@@ -640,7 +736,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information"
+        "url": "http://10.10.10.31:7001/information"
       }
     ]
   },
@@ -683,7 +779,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information/:id"
+        "url": "http://10.10.10.31:7001/information/:id"
       }
     ]
   },
@@ -793,7 +889,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information/:id/edit"
+        "url": "http://10.10.10.31:7001/information/:id/edit"
       }
     ]
   },
@@ -903,7 +999,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information/list"
+        "url": "http://10.10.10.31:7001/information/list"
       }
     ]
   },
@@ -1061,7 +1157,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information"
+        "url": "http://10.10.10.31:7001/information"
       }
     ]
   },
@@ -1219,7 +1315,7 @@ define({ "api": [
     "groupTitle": "Information",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/information/:id"
+        "url": "http://10.10.10.31:7001/information/:id"
       }
     ]
   },
@@ -1335,7 +1431,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction"
+        "url": "http://10.10.10.31:7001/introduction"
       }
     ]
   },
@@ -1378,7 +1474,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction/:id"
+        "url": "http://10.10.10.31:7001/introduction/:id"
       }
     ]
   },
@@ -1467,7 +1563,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction/:id/edit"
+        "url": "http://10.10.10.31:7001/introduction/:id/edit"
       }
     ]
   },
@@ -1556,7 +1652,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction/list"
+        "url": "http://10.10.10.31:7001/introduction/list"
       }
     ]
   },
@@ -1672,7 +1768,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction"
+        "url": "http://10.10.10.31:7001/introduction"
       }
     ]
   },
@@ -1788,7 +1884,7 @@ define({ "api": [
     "groupTitle": "Introduction",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/introduction/:id"
+        "url": "http://10.10.10.31:7001/introduction/:id"
       }
     ]
   },
@@ -1897,7 +1993,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/navigation"
+        "url": "http://10.10.10.31:7001/navigation"
       }
     ]
   },
@@ -1940,7 +2036,89 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/navigation/:id"
+        "url": "http://10.10.10.31:7001/navigation/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/navigation/:id/edit",
+    "title": "根据id查询导航栏",
+    "name": "navigation_edit",
+    "group": "Navigation",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>导航id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>导航标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>导航地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>导航创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>导航修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询导航成功',\n  data: {\n   _id: '5tret4656557frt466',\n   title: '首页',\n   url: '/index',\n   createdAt: '2018-5-2 0:0:0',\n   updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询导航栏失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询导航栏失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/navigation.js",
+    "groupTitle": "Navigation",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/navigation/:id/edit"
       }
     ]
   },
@@ -2022,7 +2200,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/navigation/list"
+        "url": "http://10.10.10.31:7001/navigation/list"
       }
     ]
   },
@@ -2124,7 +2302,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/navigation"
+        "url": "http://10.10.10.31:7001/navigation"
       }
     ]
   },
@@ -2226,7 +2404,7 @@ define({ "api": [
     "groupTitle": "Navigation",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/navigation/:id"
+        "url": "http://10.10.10.31:7001/navigation/:id"
       }
     ]
   },
@@ -2349,7 +2527,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail"
+        "url": "http://10.10.10.31:7001/solution-detail"
       }
     ]
   },
@@ -2392,7 +2570,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2488,7 +2666,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail/:id/edit"
+        "url": "http://10.10.10.31:7001/solution-detail/:id/edit"
       }
     ]
   },
@@ -2584,7 +2762,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2721,7 +2899,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail"
+        "url": "http://10.10.10.31:7001/solution-detail"
       }
     ]
   },
@@ -2805,7 +2983,7 @@ define({ "api": [
     "groupTitle": "SolutionDetail",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution-detail/:id"
+        "url": "http://10.10.10.31:7001/solution-detail/:id"
       }
     ]
   },
@@ -2928,7 +3106,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution"
+        "url": "http://10.10.10.31:7001/solution"
       }
     ]
   },
@@ -2971,7 +3149,103 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution/:id"
+        "url": "http://10.10.10.31:7001/solution/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/solution/:id/edit",
+    "title": "根据id查询解决方案",
+    "name": "solution_edit",
+    "group": "Solution",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "ObjectId",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>解决方案id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>解决方案标题</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>解决方案地址</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>解决方案描述</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imgUrl",
+            "description": "<p>图片路径</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "createdAt",
+            "description": "<p>解决方案创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "updatedAt",
+            "description": "<p>解决方案修改时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 200,\n  msg: '查询解决方案成功',\n  data:{\n    _id: '5tret4656557frt466',\n    title: '企业移动平台APP开发',\n    description: '专注APP开发三十年',\n    url: '/solution',\n    imgUrl: 'public/upload/2018-5-2/default.jpg',\n    createdAt: '2018-5-2 0:0:0',\n    updatedAt: '2018-5-2 0:0:0'\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>查询解决方案失败</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  code: 500,\n  msg: '查询解决方案失败'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/solution.js",
+    "groupTitle": "Solution",
+    "sampleRequest": [
+      {
+        "url": "http://10.10.10.31:7001/solution/:id/edit"
       }
     ]
   },
@@ -3067,7 +3341,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution/list"
+        "url": "http://10.10.10.31:7001/solution/list"
       }
     ]
   },
@@ -3197,7 +3471,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution"
+        "url": "http://10.10.10.31:7001/solution"
       }
     ]
   },
@@ -3327,7 +3601,7 @@ define({ "api": [
     "groupTitle": "Solution",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/solution/:id"
+        "url": "http://10.10.10.31:7001/solution/:id"
       }
     ]
   },
@@ -3533,7 +3807,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/login"
+        "url": "http://10.10.10.31:7001/login"
       }
     ]
   },
@@ -3576,7 +3850,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/logout"
+        "url": "http://10.10.10.31:7001/logout"
       }
     ]
   },
@@ -3671,7 +3945,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/register"
+        "url": "http://10.10.10.31:7001/register"
       }
     ]
   },
@@ -3766,7 +4040,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://10.10.10.208:7001/resetPwd"
+        "url": "http://10.10.10.31:7001/resetPwd"
       }
     ]
   }

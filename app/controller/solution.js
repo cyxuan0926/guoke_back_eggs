@@ -265,6 +265,50 @@ class SolutionController extends Controller {
       ctx.success(solutionList, '查询解决方案成功');
     } else ctx.fail('查询解决方案失败');
   }
+
+  /**
+ * @api {get} /solution/:id/edit 根据id查询解决方案
+ * @apiName solution/edit
+ * @apiGroup Solution
+ *
+ * @apiSuccess {ObjectId} _id 解决方案id
+ * @apiSuccess {String} title 解决方案标题
+ * @apiSuccess {String} url 解决方案地址
+ * @apiSuccess {String} description 解决方案描述
+ * @apiSuccess {String} imgUrl 图片路径
+ * @apiSuccess {Date} createdAt 解决方案创建时间
+ * @apiSuccess {Date} updatedAt 解决方案修改时间
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '查询解决方案成功',
+ *       data:{
+ *         _id: '5tret4656557frt466',
+ *         title: '企业移动平台APP开发',
+ *         description: '专注APP开发三十年',
+ *         url: '/solution',
+ *         imgUrl: 'public/upload/2018-5-2/default.jpg',
+ *         createdAt: '2018-5-2 0:0:0',
+ *         updatedAt: '2018-5-2 0:0:0'
+ *       }
+ *     }
+ *
+ * @apiError 500 查询解决方案失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '查询解决方案失败'
+ *     }
+ */
+  async edit() {
+    const { ctx, service } = this;
+    const solution = await service.solution.edit(ctx.params.id);
+    if (solution) ctx.success(solution, '查询解决方案成功'); else ctx.fail('查询解决方案失败');
+  }
 }
 
 module.exports = SolutionController;

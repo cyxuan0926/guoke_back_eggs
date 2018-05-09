@@ -6,6 +6,7 @@
 module.exports = app => {
   const { router, controller } = app;
   const upload = app.middleware.multer();// 上传文件中间件
+  router.get('/guoke', controller.home.index);
   // 登录
   router.post('/login', controller.users.login);
   // 退出登录

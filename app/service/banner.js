@@ -40,6 +40,14 @@ class BannerService extends Service {
     const banner = await ctx.model.Banner.find({ sysFlag: 1 });
     return banner;
   }
+
+  async edit(id) {
+    const { ctx } = this;
+    const condition = { sysFlag: 1 };
+    condition._id = id;
+    const banner = await ctx.model.Banner.findOne(condition);
+    return banner;
+  }
 }
 
 module.exports = BannerService;

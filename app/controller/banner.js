@@ -6,10 +6,10 @@ const indexRule = {
   title: { type: 'string', required: false, allowEmpty: true },
 };
 const createRule = {
-  title: 'string',
-  url: 'string',
+  title: { type: 'string', allowEmpty: true },
+  url: { type: 'string', allowEmpty: true },
   imgUrl: 'string',
-  description: { type: 'string', required: false, allowEmpty: true },
+  description: { type: 'string', allowEmpty: true },
 };
 
 class BannerController extends Controller {
@@ -233,6 +233,50 @@ class BannerController extends Controller {
   async list() {
     const { ctx, service } = this;
     const banner = await service.banner.list();
+    if (banner) ctx.success(banner, '查询标题栏成功'); else ctx.fail('查询标题栏失败');
+  }
+
+  /**
+ * @api {get} /banner/:id/edit 根据id查询标题栏
+ * @apiName banner/edit
+ * @apiGroup Banner
+ *
+ * @apiSuccess {ObjectId} _id 标题id
+ * @apiSuccess {String} title 标题
+ * @apiSuccess {String} url 标题地址
+ * @apiSuccess {String} description 标题描述
+ * @apiSuccess {String} imgUrl 图片路径
+ * @apiSuccess {Date} createdAt 标题创建时间
+ * @apiSuccess {Date} updatedAt 标题修改时间
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '查询标题栏成功',
+ *       data: {
+ *        _id: '5tret4656557frt466',
+ *        title: '国科',
+ *        description: '国科详情',
+ *        url: '/index',
+ *        imgUrl: 'public/upload/2018-5-2/default.jpg',
+ *        createdAt: '2018-5-2 0:0:0',
+ *        updatedAt: '2018-5-2 0:0:0'
+ *       }
+ *     }
+ *
+ * @apiError 500 查询标题栏失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '查询标题栏失败'
+ *     }
+ */
+  async edit() {
+    const { ctx, service } = this;
+    const banner = await service.banner.edit(ctx.params.id);
     if (banner) ctx.success(banner, '查询标题栏成功'); else ctx.fail('查询标题栏失败');
   }
 }

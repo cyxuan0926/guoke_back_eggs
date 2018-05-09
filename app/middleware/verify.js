@@ -4,7 +4,7 @@ module.exports = () => {
   return async (ctx, next) => {
     const userId = ctx.session.userId;
     const path = ctx.path;
-    const publicPath = new RegExp('^/public');
+    const publicPath = new RegExp('^[/public]|[/guoke]');
     const listPath = path.substring(path.lastIndexOf('/'));
     const sulutionPath = new RegExp('^/solution-detail.*/edit$');
     if (path === '/login' || path === '/register' || publicPath.test(path) || listPath === '/list' || sulutionPath.test(path)) {

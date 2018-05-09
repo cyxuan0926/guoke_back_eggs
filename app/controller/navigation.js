@@ -215,6 +215,46 @@ class NavigationController extends Controller {
     const navigation = await service.navigation.list();
     if (navigation) ctx.success(navigation, '查询导航成功'); else ctx.fail('查询导航失败');
   }
+
+  /**
+ * @api {get} /navigation/:id/edit 根据id查询导航栏
+ * @apiName navigation/edit
+ * @apiGroup Navigation
+ *
+ * @apiSuccess {ObjectId} _id 导航id
+ * @apiSuccess {String} title 导航标题
+ * @apiSuccess {String} url 导航地址
+ * @apiSuccess {Date} createdAt 导航创建时间
+ * @apiSuccess {Date} updatedAt 导航修改时间
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 200,
+ *       msg: '查询导航成功',
+ *       data: {
+ *        _id: '5tret4656557frt466',
+ *        title: '首页',
+ *        url: '/index',
+ *        createdAt: '2018-5-2 0:0:0',
+ *        updatedAt: '2018-5-2 0:0:0'
+ *       }
+ *     }
+ *
+ * @apiError 500 查询导航栏失败
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       code: 500,
+ *       msg: '查询导航栏失败'
+ *     }
+ */
+  async edit() {
+    const { ctx, service } = this;
+    const navigation = await service.navigation.edit(ctx.params.id);
+    if (navigation) ctx.success(navigation, '查询导航成功'); else ctx.fail('查询导航失败');
+  }
 }
 
 module.exports = NavigationController;

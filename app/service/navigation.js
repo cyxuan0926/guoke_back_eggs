@@ -40,6 +40,14 @@ class NavigationService extends Service {
     const navigation = await ctx.model.Navigation.find({ sysFlag: 1 });
     return navigation;
   }
+
+  async edit(id) {
+    const { ctx } = this;
+    const condition = { sysFlag: 1 };
+    condition._id = id;
+    const navigation = await ctx.model.Navigation.findOne(condition);
+    return navigation;
+  }
 }
 
 module.exports = NavigationService;
