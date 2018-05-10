@@ -22,7 +22,7 @@ exports.cors = {
   package: 'egg-cors',
 };
 
-exports.assets = {
-  enable: true,
-  package: 'egg-view-assets',
-};
+// exports.assets = {
+//   enable: true,
+//   package: 'egg-view-assets',
+// };

@@ -23,22 +23,21 @@ class IntroductionService extends Service {
     return result;
   }
 
-  async update(id, introduction) {
+  async update(_id, introduction) {
     const { ctx } = this;
-    const result = await ctx.model.Introduction.update(id, Object.assign(introduction, { updatedAt: Date.now() }));
+    const result = await ctx.model.Introduction.update({ _id }, Object.assign(introduction, { updatedAt: Date.now() }));
     return result;
   }
 
-  async destroy(id) {
+  async destroy(_id) {
     const { ctx } = this;
-    const result = await ctx.model.Introduction.update(id, { sysFlag: 0, updatedAt: Date.now() });
+    const result = await ctx.model.Introduction.update({ _id }, { sysFlag: 0, updatedAt: Date.now() });
     return result;
   }
 
-  async edit(id) {
+  async edit(_id) {
     const { ctx } = this;
-    console.log('id', id);
-    const introduction = await ctx.model.Introduction.findOne(Object.assign(id, { sysFlag: 1 }));
+    const introduction = await ctx.model.Introduction.findOne(Object.assign({ _id }, { sysFlag: 1 }));
     return introduction;
   }
 

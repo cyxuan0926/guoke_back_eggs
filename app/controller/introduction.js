@@ -168,7 +168,7 @@ class IntroductionController extends Controller {
   async update() {
     const { ctx, service } = this;
     ctx.validate(createRule);
-    const result = await service.introduction.update(ctx.query, ctx.request.body);
+    const result = await service.introduction.update(ctx.params.id, ctx.request.body);
     if (result) ctx.success(result, '修改简介成功'); else ctx.fail('修改简介失败');
   }
 
@@ -200,7 +200,7 @@ class IntroductionController extends Controller {
  */
   async destroy() {
     const { ctx, service } = this;
-    const result = await service.introduction.destroy(ctx.query);
+    const result = await service.introduction.destroy(ctx.params.id);
     if (result) ctx.success(result, '删除简介成功'); else ctx.fail('删除简介失败');
   }
 
@@ -251,7 +251,7 @@ class IntroductionController extends Controller {
  */
   async edit() {
     const { ctx, service } = this;
-    const introduction = await service.introduction.edit(ctx.query);
+    const introduction = await service.introduction.edit(ctx.params.id);
     if (introduction) ctx.success(introduction, '查询简介成功'); else ctx.fail('查询简介失败');
   }
 

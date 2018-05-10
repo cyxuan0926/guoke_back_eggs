@@ -17,7 +17,7 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: {"title":"guoke_front","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdn.bootcss.com\u002Fanimate.css\u002F3.5.2\u002Fanimate.min.css"}],"style":[],"script":[]},
+  head: {"title":"国科政信","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"http:\u002F\u002F10.10.10.208:7001\u002Fpublic\u002Ffavicon-gk.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fcdn.bootcss.com\u002Fanimate.css\u002F3.5.2\u002Fanimate.min.css"}],"style":[],"script":[]},
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')

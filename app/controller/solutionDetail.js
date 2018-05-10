@@ -79,6 +79,7 @@ class SolutionDetailController extends Controller {
  * @apiParam {String} solutionId 解决方案id required
  *
  * @apiSuccess {ObjectId} _id 解决方案详情id
+ * @apiParam {String} name 软件名称 required
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
  * @apiSuccess {String} technology 技术特点
@@ -97,6 +98,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
+ *          "name": "罪犯数据库",
  *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
@@ -200,6 +202,7 @@ class SolutionDetailController extends Controller {
  * @apiGroup SolutionDetail
  *
  * @apiSuccess {ObjectId} _id 解决方案详情id
+ * @apiSuccess {String} name 软件名称
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
  * @apiSuccess {Array} technology 技术特点
@@ -218,6 +221,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
+ *          "name": "罪犯数据库",
  *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"
@@ -245,6 +249,7 @@ class SolutionDetailController extends Controller {
  * @apiGroup SolutionDetail
  *
  * @apiSuccess {ObjectId} _id 解决方案详情id
+ * @apiSuccess {String} name 软件名称
  * @apiSuccess {String} introduction 软件介绍
  * @apiSuccess {String} constitute 组成部分和应用领域
  * @apiSuccess {Array} technology 技术特点
@@ -263,6 +268,7 @@ class SolutionDetailController extends Controller {
  *          "sysFlag": 1,
  *          "updatedAt": "2018-05-04T17:13:12.756Z",
  *          "createdAt": "2018-05-04T17:13:12.756Z",
+  *          "name": "罪犯数据库",
  *          "technology": ["springboot&vue.js"],
  *          "constitute": "罪犯数据信息",
  *          "introduction": "罪犯数据库"

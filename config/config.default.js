@@ -33,7 +33,7 @@ module.exports = appInfo => {
       // 判断是否需要 ignore 的方法，请求上下文 context 作为第一个参数
       ignore: ctx => ctx.ip === '127.0.0.1' || 'localhost',
     },
-    domainWhiteList: [ 'http://localhost:8080', 'http://localhost:3000', 'http://localhost:9528' ],
+    domainWhiteList: [ 'http://localhost:8080', 'http://localhost:3000', 'http://10.10.10.208:3000' ],
     // domainWhiteList: [ '*' ],
   };
 
@@ -57,20 +57,20 @@ module.exports = appInfo => {
     },
   };
 
-  config.assets = {
-    publicPath: '/public/',
-    devServer: {
-      debug: false,
-      command: 'roadhog dev',
-      port: 8000,
-      env: {
-        BROWSER: 'none',
-        ESLINT: 'none',
-        SOCKET_SERVER: 'http://127.0.0.1:8000',
-        PUBLIC_PATH: 'http://127.0.0.1:8000',
-      },
-    },
-  };
+  // config.assets = {
+  //   publicPath: '/public/',
+  //   devServer: {
+  //     debug: false,
+  //     command: 'roadhog dev',
+  //     port: 8000,
+  //     env: {
+  //       BROWSER: 'none',
+  //       ESLINT: 'none',
+  //       SOCKET_SERVER: 'http://127.0.0.1:8000',
+  //       PUBLIC_PATH: 'http://127.0.0.1:8000',
+  //     },
+  //   },
+  // };
 
   return config;
 };
