@@ -41,7 +41,7 @@
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod",
-    "nuxt": "nuxt start -p 3000"
+    "nuxt": "nuxt start"
   },
   "ci": {
     "version": "8"
@@ -54,12 +54,12 @@
   "license": "MIT",
   "apidoc": {
     "title": "国科官网api",
-    "url": "http://10.10.10.208:7001",
-    "sampleUrl": "http://10.10.10.208:7001"
+    "url": "http://120.79.67.25:7001",
+    "sampleUrl": "http://120.79.67.25:7001"
   },
   "config": {
     "nuxt": {
-      "host": "10.10.10.208",
+      "host": "127.0.0.1",
       "port": "3000"
     }
   }
