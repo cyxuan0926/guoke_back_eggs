@@ -11,7 +11,7 @@
     "egg-passport": "^2.0.1",
     "egg-scripts": "^2.5.0",
     "egg-validate": "^1.0.0",
-    "egg-view-assets": "^1.1.2",
+    "egg-view-nunjucks": "^2.2.0",
     "iview": "^2.13.1",
     "nuxt": "^1.4.0"
   },
@@ -59,7 +59,7 @@
   },
   "config": {
     "nuxt": {
-      "host": "localhost",
+      "host": "10.10.10.208",
       "port": "3000"
     }
   }

@@ -33,7 +33,7 @@ module.exports = appInfo => {
       // 判断是否需要 ignore 的方法，请求上下文 context 作为第一个参数
       ignore: ctx => ctx.ip === '127.0.0.1' || 'localhost',
     },
-    domainWhiteList: [ 'http://localhost:8080', 'http://localhost:3000', 'http://10.10.10.208:3000' ],
+    domainWhiteList: [ 'http://localhost:8081', 'http://localhost:8080', 'http://localhost:3000', 'http://10.10.10.208:3000', 'http://localhost:7001', 'http://10.10.10.208:7001' ],
     // domainWhiteList: [ '*' ],
   };
 
@@ -41,36 +41,16 @@ module.exports = appInfo => {
     credentials: true,
   };
 
-  // config.cluster = {
-  //   listen: {
-  //     port: 7001,
-  //     hostname: 'localhost',
-  //     // path: '/var/run/egg.sock',
-  //   },
-  // };
-
   config.view = {
     // 如果还有其他模板引擎，需要合并多个目录
+    defaultViewEngine: 'nunjucks',
+    defaultExtension: '.html',
     root: path.join(appInfo.baseDir, 'app/assets'),
     mapping: {
-      '.js': 'assets',
+      '.js': 'nunjucks',
+      '.html': 'nunjucks',
     },
   };
-
-  // config.assets = {
-  //   publicPath: '/public/',
-  //   devServer: {
-  //     debug: false,
-  //     command: 'roadhog dev',
-  //     port: 8000,
-  //     env: {
-  //       BROWSER: 'none',
-  //       ESLINT: 'none',
-  //       SOCKET_SERVER: 'http://127.0.0.1:8000',
-  //       PUBLIC_PATH: 'http://127.0.0.1:8000',
-  //     },
-  //   },
-  // };
 
   return config;
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 // had enabled by egg
-// exports.static = true;
+exports.static = true;
 exports.mongoose = {
   enable: true,
   package: 'egg-mongoose',
@@ -22,7 +22,12 @@ exports.cors = {
   package: 'egg-cors',
 };
 
-// exports.assets = {
+// exports.view = {
 //   enable: true,
-//   package: 'egg-view-assets',
+//   package: 'egg-view',
 // };
+
+exports.nunjucks = {
+  enable: true,
+  package: 'egg-view-nunjucks',
+};
