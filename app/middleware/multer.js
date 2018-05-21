@@ -4,6 +4,7 @@ const multer = require('koa-multer');
 module.exports = () => {
   const date = new Date();
   const storage = multer.diskStorage({
+    // destination: `app/public/upload/${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
     destination: `app/public/upload/${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
     filename: (req, file, cb) => {
       const fileFormat = (file.originalname).split('.');

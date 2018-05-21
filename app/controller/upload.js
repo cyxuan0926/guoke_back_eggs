@@ -49,7 +49,7 @@ class UploadController extends Controller {
     const { ctx } = this;
     const file = ctx.req.file;
     file.destination = file.destination.substring(file.destination.indexOf('/') + 1);
-    file.path = `http://${ctx.request.hostname}:7001/${file.path.substring(file.path.indexOf('\\') + 1)}`;
+    file.path = `http://${ctx.request.hostname}:7001/${file.path.replace(/(^app\\)|(^app\/)/, '')}`;
     if (file) {
       ctx.success(file, '上传文件成功');
     } else ctx.fail('上传文件失败');

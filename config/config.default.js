@@ -33,8 +33,15 @@ module.exports = appInfo => {
       // 判断是否需要 ignore 的方法，请求上下文 context 作为第一个参数
       ignore: ctx => ctx.ip === '127.0.0.1' || 'localhost',
     },
-    domainWhiteList: [ 'http://localhost:8081', 'http://localhost:8080', 'http://localhost:3000', 'http://10.10.10.208:3000', 'http://localhost:7001', 'http://10.10.10.208:7001' ],
-    // domainWhiteList: [ '*' ],
+    domainWhiteList: [
+      'http://localhost:8081',
+      'http://localhost:8080',
+      'http://localhost:3000',
+      'http://10.10.10.208:3000',
+      'http://localhost:7001',
+      'http://10.10.10.208:7001',
+      'http://120.79.67.25:3000',
+    ],
   };
 
   config.cors = {
@@ -49,6 +56,14 @@ module.exports = appInfo => {
     mapping: {
       '.js': 'nunjucks',
       '.html': 'nunjucks',
+    },
+  };
+
+  config.cluster = {
+    listen: {
+      port: 7001,
+      hostname: '127.0.0.1',
+      // path: '/var/run/egg.sock',
     },
   };
 
